@@ -9,16 +9,16 @@
 <style>
 :root{
     --navy:#102a43;
-    --navy2:#081b2c;
+    --navy-dark:#081b2c;
     --gold:#f6b800;
-    --gold2:#ffca28;
-    --white:#fff;
+    --gold-light:#ffd34e;
+    --white:#ffffff;
     --bg:#f4f7fa;
     --text:#1f2937;
     --muted:#667085;
     --border:#e5e7eb;
     --danger:#dc3545;
-    --success:#1f7a4d;
+    --success:#16834b;
     --shadow:0 12px 35px rgba(15,42,67,.12);
 }
 
@@ -39,16 +39,24 @@ body{
     overflow-x:hidden;
 }
 
+button,
+input,
+select,
+textarea{
+    font-family:inherit;
+}
+
 /* =========================
    TOP BAR
 ========================= */
 
 .top-bar{
-    background:var(--navy2);
+    background:var(--navy-dark);
     color:#fff;
     text-align:center;
     padding:9px 15px;
     font-size:14px;
+    font-weight:600;
 }
 
 /* =========================
@@ -97,25 +105,18 @@ header{
 .lang-btn.active{
     background:var(--navy);
     color:#fff;
-    transform:translateY(-1px);
 }
-
-/* =========================
-   OFFICIAL LOGO CENTER
-========================= */
 
 .logo-center{
     display:flex;
     align-items:center;
     justify-content:center;
-    min-width:150px;
 }
 
 .logo-center img{
     width:88px;
     height:88px;
     object-fit:contain;
-    display:block;
 }
 
 .logo-fallback{
@@ -129,7 +130,6 @@ header{
     font-weight:bold;
     align-items:center;
     justify-content:center;
-    box-shadow:var(--shadow);
 }
 
 /* =========================
@@ -139,17 +139,18 @@ header{
 .header-actions{
     display:flex;
     justify-content:flex-end;
-    align-items:center;
 }
 
 .cart-button{
     border:none;
     background:var(--gold);
-    color:var(--navy2);
+    color:var(--navy-dark);
+
     padding:14px 20px;
     border-radius:14px;
-    font-weight:800;
+
     font-size:16px;
+    font-weight:800;
     cursor:pointer;
 
     display:flex;
@@ -157,25 +158,19 @@ header{
     gap:10px;
 
     box-shadow:0 8px 25px rgba(246,184,0,.30);
-    transition:.25s;
-}
-
-.cart-button:hover{
-    transform:translateY(-3px);
-    background:var(--gold2);
 }
 
 .cart-count{
     width:28px;
     height:28px;
     border-radius:50%;
+
     background:var(--navy);
     color:#fff;
 
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:13px;
 }
 
 /* =========================
@@ -183,9 +178,9 @@ header{
 ========================= */
 
 nav{
+    background:#fff;
     border-top:1px solid var(--border);
     border-bottom:1px solid var(--border);
-    background:#fff;
 }
 
 .nav-container{
@@ -196,14 +191,13 @@ nav{
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
-    gap:30px;
+    gap:28px;
 }
 
 .nav-container a{
     text-decoration:none;
     color:var(--navy);
     font-weight:800;
-    transition:.2s;
 }
 
 .nav-container a:hover{
@@ -219,33 +213,21 @@ nav{
     position:relative;
 
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
 
     text-align:center;
     padding:90px 20px;
 
-    background-image:
-        linear-gradient(
-            rgba(5,22,34,.48),
-            rgba(5,22,34,.75)
-        ),
-        url("https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=2200&q=85");
+    background:
+    linear-gradient(
+        rgba(5,22,34,.50),
+        rgba(5,22,34,.78)
+    ),
+    url("https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=2200&q=85");
 
     background-size:cover;
     background-position:center;
-    background-attachment:fixed;
-}
-
-.hero::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-        120deg,
-        rgba(16,42,67,.20),
-        rgba(246,184,0,.05)
-    );
 }
 
 .hero-content{
@@ -257,25 +239,24 @@ nav{
 
 .hero-subtitle{
     color:#ffe082;
-    font-size:16px;
     letter-spacing:4px;
+    font-size:16px;
     font-weight:bold;
-    margin-bottom:22px;
+    margin-bottom:20px;
 }
 
 .hero h1{
-    font-size:clamp(44px,8vw,90px);
-    line-height:1.05;
-    text-shadow:0 8px 25px rgba(0,0,0,.35);
-    margin-bottom:22px;
+    font-size:clamp(45px,8vw,90px);
+    margin-bottom:20px;
+    text-shadow:0 8px 25px rgba(0,0,0,.4);
 }
 
 .hero p{
     max-width:800px;
-    margin:0 auto 35px;
-    font-size:clamp(18px,2.3vw,27px);
+    margin:0 auto 30px;
+
+    font-size:clamp(18px,2vw,27px);
     line-height:1.7;
-    text-shadow:0 3px 15px rgba(0,0,0,.45);
 }
 
 .hero-buttons{
@@ -286,29 +267,47 @@ nav{
 }
 
 .main-btn,
-.map-btn{
+.secondary-btn{
     border:none;
     padding:17px 30px;
     border-radius:14px;
     font-size:17px;
     font-weight:bold;
     cursor:pointer;
-    transition:.25s;
 }
 
 .main-btn{
     background:var(--gold);
-    color:var(--navy2);
+    color:var(--navy-dark);
 }
 
-.map-btn{
-    background:rgba(255,255,255,.92);
+.secondary-btn{
+    background:#fff;
     color:var(--navy);
 }
 
-.main-btn:hover,
-.map-btn:hover{
-    transform:translateY(-3px);
+/* =========================
+   DELIVERY STRIP
+========================= */
+
+.delivery-strip{
+    background:var(--navy);
+    color:#fff;
+    padding:18px 20px;
+
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:35px;
+
+    text-align:center;
+}
+
+.delivery-strip-item{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-weight:bold;
 }
 
 /* =========================
@@ -338,6 +337,55 @@ main{
 }
 
 /* =========================
+   DELIVERY SECTION
+========================= */
+
+.delivery-section{
+    margin-bottom:90px;
+}
+
+.delivery-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.delivery-card{
+    background:#fff;
+    border-radius:20px;
+    padding:30px 22px;
+    text-align:center;
+    box-shadow:var(--shadow);
+    border:1px solid var(--border);
+}
+
+.delivery-icon{
+    width:65px;
+    height:65px;
+    margin:0 auto 18px;
+
+    border-radius:50%;
+    background:#fff5cf;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:30px;
+}
+
+.delivery-card h3{
+    color:var(--navy);
+    margin-bottom:10px;
+    font-size:20px;
+}
+
+.delivery-card p{
+    color:var(--muted);
+    line-height:1.7;
+}
+
+/* =========================
    CATEGORY GRID
 ========================= */
 
@@ -357,7 +405,7 @@ main{
 }
 
 .category-card:hover{
-    transform:translateY(-8px);
+    transform:translateY(-7px);
 }
 
 .category-image{
@@ -369,7 +417,7 @@ main{
     width:100%;
     height:100%;
     object-fit:cover;
-    transition:.45s;
+    transition:.4s;
 }
 
 .category-card:hover img{
@@ -383,13 +431,11 @@ main{
 
 .category-info h3{
     color:var(--navy);
-    font-size:19px;
-    margin-bottom:7px;
+    margin-bottom:8px;
 }
 
 .category-info p{
     color:var(--muted);
-    font-size:14px;
 }
 
 /* =========================
@@ -403,18 +449,6 @@ main{
 
 .sub-products-section.show{
     display:block;
-    animation:fadeIn .45s ease;
-}
-
-@keyframes fadeIn{
-    from{
-        opacity:0;
-        transform:translateY(25px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
 }
 
 .selected-category{
@@ -435,11 +469,6 @@ main{
     border-radius:18px;
     overflow:hidden;
     box-shadow:0 8px 25px rgba(0,0,0,.08);
-    transition:.25s;
-}
-
-.product-card:hover{
-    transform:translateY(-6px);
 }
 
 .product-card img{
@@ -455,8 +484,8 @@ main{
 
 .product-info h4{
     color:var(--navy);
-    margin-bottom:9px;
-    min-height:42px;
+    margin-bottom:10px;
+    min-height:40px;
 }
 
 .product-info p{
@@ -472,23 +501,90 @@ main{
     color:#fff;
     padding:12px;
     border-radius:10px;
-    cursor:pointer;
     font-weight:bold;
-    transition:.2s;
-}
-
-.add-btn:hover{
-    background:var(--gold);
-    color:var(--navy2);
+    cursor:pointer;
 }
 
 /* =========================
-   CONTACT
+   ORDER / BOOKING SECTION
+========================= */
+
+.order-section{
+    margin-top:90px;
+    background:linear-gradient(135deg,var(--navy),var(--navy-dark));
+    border-radius:28px;
+    padding:60px 30px;
+    color:#fff;
+}
+
+.order-section .section-title{
+    color:#fff;
+}
+
+.order-section .section-description{
+    color:#d9e3ec;
+}
+
+.order-form{
+    max-width:850px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.form-group.full{
+    grid-column:1/-1;
+}
+
+.form-group label{
+    font-weight:bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+}
+
+.form-group textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+.order-submit{
+    grid-column:1/-1;
+
+    border:none;
+    background:var(--gold);
+    color:var(--navy-dark);
+
+    padding:17px;
+    border-radius:12px;
+
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* =========================
+   CONTACT + MAP
 ========================= */
 
 .contact-section{
     background:#fff;
-    margin-top:80px;
+    margin-top:90px;
     padding:70px 30px;
     border-radius:25px;
     box-shadow:var(--shadow);
@@ -498,7 +594,6 @@ main{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:35px;
-    align-items:stretch;
 }
 
 .contact-info{
@@ -523,20 +618,18 @@ main{
 
 .contact-item a{
     color:var(--navy);
-    text-decoration:none;
     font-weight:bold;
+    text-decoration:none;
 }
 
 .map-box{
     min-height:420px;
     border-radius:20px;
     overflow:hidden;
-    box-shadow:0 8px 25px rgba(0,0,0,.10);
 }
 
 .map-box iframe{
     width:100%;
-    height:100%;
     min-height:420px;
     border:0;
 }
@@ -546,7 +639,7 @@ main{
 ========================= */
 
 footer{
-    background:var(--navy2);
+    background:var(--navy-dark);
     color:#fff;
     margin-top:80px;
     padding:55px 20px 25px;
@@ -558,10 +651,6 @@ footer{
     text-align:center;
 }
 
-.footer-logo{
-    margin-bottom:20px;
-}
-
 .footer-logo img{
     width:80px;
     height:80px;
@@ -570,7 +659,7 @@ footer{
 
 .footer-name{
     font-size:26px;
-    margin-bottom:10px;
+    margin:15px 0 10px;
 }
 
 .footer-address{
@@ -591,15 +680,13 @@ footer{
     background:transparent;
     color:#fff;
     cursor:pointer;
-    font-size:15px;
     text-decoration:underline;
 }
 
 .copyright{
-    padding-top:25px;
     border-top:1px solid rgba(255,255,255,.15);
+    padding-top:25px;
     color:#cbd5e1;
-    font-size:14px;
 }
 
 /* =========================
@@ -610,10 +697,13 @@ footer{
     position:fixed;
     inset:0;
     background:rgba(0,0,0,.60);
+
     z-index:20000;
     display:none;
+
     align-items:center;
     justify-content:center;
+
     padding:20px;
 }
 
@@ -625,10 +715,13 @@ footer{
     width:100%;
     max-width:850px;
     max-height:85vh;
+
     overflow-y:auto;
+
     background:#fff;
     border-radius:22px;
     padding:35px;
+
     position:relative;
 }
 
@@ -645,18 +738,19 @@ footer{
 .modal-box p{
     color:#4b5563;
     line-height:1.8;
-    margin-bottom:12px;
 }
 
 .close-modal{
     position:absolute;
     top:14px;
     inset-inline-start:14px;
+
     width:40px;
     height:40px;
+
     border:none;
     border-radius:50%;
-    background:#eee;
+
     cursor:pointer;
     font-size:22px;
 }
@@ -667,9 +761,10 @@ footer{
 
 .cart-item{
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
     gap:15px;
+
     padding:15px 0;
     border-bottom:1px solid var(--border);
 }
@@ -690,41 +785,12 @@ footer{
 }
 
 /* =========================
-   MOBILE
+   RESPONSIVE
 ========================= */
 
-@media(max-width:850px){
+@media(max-width:950px){
 
-    .header-container{
-        grid-template-columns:1fr;
-        justify-items:center;
-        padding:15px;
-    }
-
-    .logo-center{
-        order:-1;
-    }
-
-    .languages,
-    .header-actions{
-        justify-content:center;
-    }
-
-    .nav-container{
-        gap:14px;
-        font-size:14px;
-    }
-
-    .hero{
-        min-height:520px;
-        background-attachment:scroll;
-    }
-
-    .category-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .sub-products-grid{
+    .delivery-grid{
         grid-template-columns:repeat(2,1fr);
     }
 
@@ -734,10 +800,43 @@ footer{
 
 }
 
-@media(max-width:500px){
+@media(max-width:850px){
+
+    .header-container{
+        grid-template-columns:1fr;
+        justify-items:center;
+    }
+
+    .logo-center{
+        order:-1;
+    }
+
+    .header-actions,
+    .languages{
+        justify-content:center;
+    }
 
     .category-grid,
     .sub-products-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .order-form{
+        grid-template-columns:1fr;
+    }
+
+    .form-group.full,
+    .order-submit{
+        grid-column:auto;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .category-grid,
+    .sub-products-grid,
+    .delivery-grid{
         grid-template-columns:1fr;
     }
 
@@ -773,8 +872,7 @@ footer{
 
 <img
 src="./assets/logo.png"
-alt="شام سوبرماركت"
-id="officialLogo"
+alt="Sham Supermarket"
 onerror="this.style.display='none';document.getElementById('logoFallback').style.display='flex';">
 
 <div class="logo-fallback" id="logoFallback">ش</div>
@@ -800,9 +898,10 @@ onerror="this.style.display='none';document.getElementById('logoFallback').style
 <div class="nav-container">
 
 <a href="#home" id="navHome">الرئيسية</a>
+<a href="#delivery" id="navDelivery">الحجز والتوصيل</a>
 <a href="#categories" id="navProducts">المنتجات</a>
+<a href="#order" id="navOrder">اطلب الآن</a>
 <a href="#contact" id="navContact">التواصل</a>
-<a href="#location" id="navLocation">الوصول إلينا</a>
 
 </div>
 
@@ -836,10 +935,10 @@ onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'
 </button>
 
 <button
-class="map-btn"
-id="findUs"
-onclick="document.getElementById('location').scrollIntoView({behavior:'smooth'})">
-📍 الطريق إلينا
+class="secondary-btn"
+id="quickOrder"
+onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">
+طلب سريع
 </button>
 
 </div>
@@ -848,7 +947,103 @@ onclick="document.getElementById('location').scrollIntoView({behavior:'smooth'})
 
 </section>
 
+<div class="delivery-strip">
+
+<div class="delivery-strip-item" id="stripBooking">
+⚡ حجز سريع
+</div>
+
+<div class="delivery-strip-item" id="stripDelivery">
+🚚 توصيل فوري داخل Neumünster
+</div>
+
+<div class="delivery-strip-item" id="stripPrice">
+🏠 التوصيل للمنزل مقابل 40 €
+</div>
+
+<div class="delivery-strip-item" id="stripPayment">
+💳 نقدًا أو تحويل بنكي
+</div>
+
+</div>
+
 <main>
+
+<!-- DELIVERY -->
+
+<section class="delivery-section" id="delivery">
+
+<h2 class="section-title" id="deliveryTitle">
+الحجز والتوصيل السريع
+</h2>
+
+<p class="section-description" id="deliveryDescription">
+يمكنك حجز منتجاتك بسرعة أو طلب التوصيل داخل مدينة Neumünster.
+</p>
+
+<div class="delivery-grid">
+
+<div class="delivery-card">
+
+<div class="delivery-icon">⚡</div>
+
+<h3 id="bookingCardTitle">
+حجز سريع
+</h3>
+
+<p id="bookingCardText">
+احجز منتجاتك مسبقًا وسيتم تجهيز طلبك بسرعة.
+</p>
+
+</div>
+
+<div class="delivery-card">
+
+<div class="delivery-icon">🚚</div>
+
+<h3 id="fastDeliveryTitle">
+توصيل سريع
+</h3>
+
+<p id="fastDeliveryText">
+نقدم خدمة التوصيل السريع داخل مدينة Neumünster.
+</p>
+
+</div>
+
+<div class="delivery-card">
+
+<div class="delivery-icon">🏠</div>
+
+<h3 id="deliveryPriceTitle">
+توصيل إلى المنزل
+</h3>
+
+<p id="deliveryPriceText">
+خدمة التوصيل إلى المنزل مقابل 40 €.
+</p>
+
+</div>
+
+<div class="delivery-card">
+
+<div class="delivery-icon">💳</div>
+
+<h3 id="paymentTitle">
+طرق الدفع
+</h3>
+
+<p id="paymentText">
+يمكنك الدفع نقدًا أو عن طريق التحويل البنكي.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CATEGORIES -->
 
 <section id="categories">
 
@@ -857,12 +1052,14 @@ onclick="document.getElementById('location').scrollIntoView({behavior:'smooth'})
 </h2>
 
 <p class="section-description" id="categoryDescription">
-اختر القسم الرئيسي، ثم ستظهر لك 12 صورة ومنتجًا فرعيًا متعلقًا بهذا القسم.
+اختر القسم الرئيسي ثم ستظهر لك 12 صورة ومنتجًا فرعيًا متعلقًا بهذا القسم.
 </p>
 
 <div class="category-grid" id="categoryGrid"></div>
 
 </section>
+
+<!-- SUB PRODUCTS -->
 
 <section class="sub-products-section" id="subProductsSection">
 
@@ -872,6 +1069,117 @@ onclick="document.getElementById('location').scrollIntoView({behavior:'smooth'})
 
 </section>
 
+<!-- ORDER -->
+
+<section class="order-section" id="order">
+
+<h2 class="section-title" id="orderTitle">
+اطلب أو احجز الآن
+</h2>
+
+<p class="section-description" id="orderDescription">
+أرسل طلبك وسنتواصل معك لتأكيد الحجز أو التوصيل.
+</p>
+
+<form class="order-form" onsubmit="submitOrder(event)">
+
+<div class="form-group">
+
+<label id="nameLabel">الاسم</label>
+
+<input
+type="text"
+id="customerName"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label id="phoneFormLabel">رقم الهاتف</label>
+
+<input
+type="tel"
+id="customerPhone"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label id="serviceLabel">نوع الخدمة</label>
+
+<select id="serviceType">
+
+<option value="booking" id="bookingOption">
+حجز واستلام
+</option>
+
+<option value="delivery" id="deliveryOption">
+توصيل إلى المنزل
+</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label id="paymentLabel">طريقة الدفع</label>
+
+<select id="paymentType">
+
+<option value="cash" id="cashOption">
+الدفع نقدًا
+</option>
+
+<option value="bank" id="bankOption">
+تحويل بنكي
+</option>
+
+</select>
+
+</div>
+
+<div class="form-group full">
+
+<label id="addressFormLabel">
+العنوان للتوصيل
+</label>
+
+<input
+type="text"
+id="deliveryAddress">
+
+</div>
+
+<div class="form-group full">
+
+<label id="orderDetailsLabel">
+تفاصيل الطلب
+</label>
+
+<textarea
+id="orderDetails"
+required></textarea>
+
+</div>
+
+<button
+type="submit"
+class="order-submit"
+id="submitOrderBtn">
+
+إرسال الطلب
+
+</button>
+
+</form>
+
+</section>
+
+<!-- CONTACT -->
+
 <section class="contact-section" id="contact">
 
 <h2 class="section-title" id="contactTitle">
@@ -879,7 +1187,7 @@ onclick="document.getElementById('location').scrollIntoView({behavior:'smooth'})
 </h2>
 
 <p class="section-description" id="contactDescription">
-يمكنك زيارة سوبرماركت الشام أو الاتصال بنا مباشرة.
+قم بزيارة سوبرماركت الشام أو اتصل بنا مباشرة.
 </p>
 
 <div class="contact-grid">
@@ -908,20 +1216,24 @@ Bahnhofstraße 15, 24534 Neumünster, Deutschland
 
 <div class="contact-item">
 
-<strong id="routeLabel">🚗 الطريق إلينا</strong>
+<strong id="routeLabel">
+🚗 الطريق إلينا
+</strong>
 
 <a
+id="openMapsText"
 href="https://www.google.com/maps/search/?api=1&query=Bahnhofstra%C3%9Fe+15,+24534+Neum%C3%BCnster"
-target="_blank"
-id="openMapsText">
+target="_blank">
+
 افتح الطريق في خرائط Google
+
 </a>
 
 </div>
 
 </div>
 
-<div class="map-box" id="location">
+<div class="map-box">
 
 <iframe
 src="https://www.google.com/maps?q=Bahnhofstraße%2015,%2024534%20Neumünster&output=embed"
@@ -960,51 +1272,77 @@ Bahnhofstraße 15, 24534 Neumünster, Deutschland
 
 <div class="footer-links">
 
-<button onclick="openModal('privacyModal')" id="privacyBtn">
+<button
+onclick="openModal('privacyModal')"
+id="privacyBtn">
+
 سياسة الخصوصية
+
 </button>
 
-<button onclick="openModal('imprintModal')" id="imprintBtn">
+<button
+onclick="openModal('imprintModal')"
+id="imprintBtn">
+
 البصمة القانونية
+
 </button>
 
 </div>
 
 <div class="copyright" id="copyright">
+
 © 2026 جميع حقوق الطبع والنشر محفوظة لسوبرماركت الشام.
+
 </div>
 
 </div>
 
 </footer>
 
-<!-- CART -->
+<!-- CART MODAL -->
 
 <div class="modal" id="cartModal">
 
 <div class="modal-box">
 
-<button class="close-modal" onclick="closeModal('cartModal')">×</button>
+<button
+class="close-modal"
+onclick="closeModal('cartModal')">
+×
+</button>
 
-<h2 id="cartTitle">سلة التسوق</h2>
+<h2 id="cartTitle">
+سلة التسوق
+</h2>
 
 <div id="cartItems">
-<div class="empty-cart" id="emptyCart">السلة فارغة</div>
+
+<div class="empty-cart" id="emptyCart">
+السلة فارغة
 </div>
 
 </div>
 
 </div>
 
-<!-- PRIVACY -->
+</div>
+
+<!-- PRIVACY MODAL -->
 
 <div class="modal" id="privacyModal">
 
 <div class="modal-box">
 
-<button class="close-modal" onclick="closeModal('privacyModal')">×</button>
+<button
+class="close-modal"
+onclick="closeModal('privacyModal')">
+×
+</button>
 
-<h2 id="privacyTitle">سياسة الخصوصية</h2>
+<h2 id="privacyTitle">
+سياسة الخصوصية
+</h2>
 
 <div id="privacyContent"></div>
 
@@ -1012,15 +1350,21 @@ Bahnhofstraße 15, 24534 Neumünster, Deutschland
 
 </div>
 
-<!-- IMPRINT -->
+<!-- IMPRINT MODAL -->
 
 <div class="modal" id="imprintModal">
 
 <div class="modal-box">
 
-<button class="close-modal" onclick="closeModal('imprintModal')">×</button>
+<button
+class="close-modal"
+onclick="closeModal('imprintModal')">
+×
+</button>
 
-<h2 id="imprintTitle">البصمة القانونية</h2>
+<h2 id="imprintTitle">
+البصمة القانونية
+</h2>
 
 <div id="imprintContent"></div>
 
@@ -1037,33 +1381,119 @@ Bahnhofstraße 15, 24534 Neumünster, Deutschland
 const translations = {
 
 ar:{
+
 dir:"rtl",
+
 pageTitle:"سوبرماركت الشام | Neumünster",
+
 topBar:"مرحباً بكم في سوبرماركت الشام",
+
 name:"سوبرماركت الشام",
+
 cart:"🛒 السلة",
+
 cartTitle:"سلة التسوق",
+
 emptyCart:"السلة فارغة",
+
 home:"الرئيسية",
+
+delivery:"الحجز والتوصيل",
+
 products:"المنتجات",
+
+order:"اطلب الآن",
+
 contact:"التواصل",
-location:"الوصول إلينا",
+
 heroTitle:"سوبرماركت الشام",
+
 heroDescription:"منتجات عربية وتركية وشرقية وعالمية بجودة عالية وأسعار مناسبة",
+
 shopNow:"تسوق الآن",
-findUs:"📍 الطريق إلينا",
+
+quickOrder:"طلب سريع",
+
+stripBooking:"⚡ حجز سريع",
+
+stripDelivery:"🚚 توصيل سريع داخل Neumünster",
+
+stripPrice:"🏠 التوصيل للمنزل مقابل 40 €",
+
+stripPayment:"💳 نقدًا أو تحويل بنكي",
+
+deliveryTitle:"الحجز والتوصيل السريع",
+
+deliveryDescription:"احجز منتجاتك أو اطلب التوصيل داخل مدينة Neumünster بسرعة وسهولة.",
+
+bookingCardTitle:"حجز سريع",
+
+bookingCardText:"احجز منتجاتك مسبقًا وسيتم تجهيز طلبك بسرعة للاستلام.",
+
+fastDeliveryTitle:"توصيل سريع",
+
+fastDeliveryText:"نقدم خدمة التوصيل السريع والفوري داخل مدينة Neumünster.",
+
+deliveryPriceTitle:"التوصيل إلى المنزل",
+
+deliveryPriceText:"خدمة التوصيل إلى المنزل مقابل 40 €.",
+
+paymentTitle:"طرق الدفع",
+
+paymentText:"يمكنك الدفع نقدًا عند الاستلام أو عن طريق التحويل البنكي.",
+
 categoryTitle:"الأقسام الرئيسية",
-categoryDescription:"اختر القسم الرئيسي، ثم ستظهر لك 12 صورة ومنتجًا فرعيًا متعلقًا بهذا القسم.",
+
+categoryDescription:"اختر القسم الرئيسي ثم ستظهر لك 12 منتجًا وصورة فرعية مرتبطة بهذا القسم.",
+
+orderTitle:"اطلب أو احجز الآن",
+
+orderDescription:"أرسل تفاصيل طلبك وسنتواصل معك لتأكيد الحجز أو التوصيل.",
+
+nameLabel:"الاسم",
+
+phoneFormLabel:"رقم الهاتف",
+
+serviceLabel:"نوع الخدمة",
+
+bookingOption:"حجز واستلام من المتجر",
+
+deliveryOption:"توصيل إلى المنزل",
+
+paymentLabel:"طريقة الدفع",
+
+cashOption:"الدفع نقدًا",
+
+bankOption:"تحويل بنكي",
+
+addressFormLabel:"عنوان التوصيل",
+
+orderDetailsLabel:"تفاصيل الطلب",
+
+submitOrder:"إرسال الطلب",
+
+orderSuccess:"تم إرسال طلبك بنجاح. سنتواصل معك في أقرب وقت لتأكيد الطلب.",
+
 contactTitle:"تواصل معنا",
+
 contactDescription:"يمكنك زيارة سوبرماركت الشام أو الاتصال بنا مباشرة.",
+
 address:"📍 العنوان",
+
 phone:"📞 الهاتف",
+
 route:"🚗 الطريق إلينا",
+
 openMaps:"افتح الطريق في خرائط Google",
+
 add:"أضف إلى السلة",
+
 remove:"حذف",
+
 privacy:"سياسة الخصوصية",
+
 imprint:"البصمة القانونية",
+
 copyright:"© 2026 جميع حقوق الطبع والنشر محفوظة لسوبرماركت الشام.",
 
 categories:[
@@ -1090,55 +1520,143 @@ categories:[
 ],
 
 privacyText:`
-<h3>معلومات عامة</h3>
-<p>نحن نحترم خصوصية زوار موقع سوبرماركت الشام ونتعامل مع البيانات الشخصية وفق القوانين المعمول بها.</p>
-<h3>بيانات التواصل</h3>
-<p>إذا تواصلت معنا عبر الهاتف أو أي وسيلة اتصال، فقد نستخدم البيانات التي تقدمها فقط لمعالجة طلبك والتواصل معك.</p>
+<h3>سياسة الخصوصية</h3>
+<p>نحترم خصوصية زوار موقع سوبرماركت الشام ونتعامل مع البيانات الشخصية وفق القوانين المعمول بها.</p>
+<h3>بيانات التواصل والطلبات</h3>
+<p>عند إرسال طلب أو حجز، قد يتم استخدام الاسم ورقم الهاتف والعنوان فقط من أجل معالجة الطلب والتواصل مع العميل.</p>
 <h3>الخدمات الخارجية</h3>
-<p>قد يحتوي الموقع على خدمات خارجية مثل خرائط Google. عند استخدام هذه الخدمات قد يتم تطبيق سياسة الخصوصية الخاصة بمقدم الخدمة.</p>
+<p>قد يستخدم الموقع خدمات خارجية مثل خرائط Google، وتخضع هذه الخدمات لسياسات الخصوصية الخاصة بمقدميها.</p>
 <h3>حقوقك</h3>
-<p>يمكنك طلب معلومات حول بياناتك الشخصية أو طلب تصحيحها أو حذفها وفق القوانين السارية.</p>
+<p>يمكنك طلب معلومات حول بياناتك الشخصية أو طلب تصحيحها أو حذفها وفقًا للقوانين المعمول بها.</p>
 `,
 
 imprintText:`
-<h3>بيانات الموقع</h3>
+<h3>بيانات النشاط التجاري</h3>
 <p><strong>سوبرماركت الشام</strong></p>
 <p>Bahnhofstraße 15<br>24534 Neumünster<br>Deutschland</p>
 <h3>التواصل</h3>
 <p>الهاتف: +49 1573 1938918</p>
-<h3>المحتوى</h3>
-<p>تم إعداد محتوى هذا الموقع لأغراض العرض والتعريف بالسوبرماركت. يجب مراجعة البيانات القانونية والتجارية قبل الإطلاق الرسمي للموقع.</p>
+<h3>الخدمات</h3>
+<p>الحجز السريع والتوصيل داخل مدينة Neumünster. التوصيل إلى المنزل مقابل 40 €.</p>
+<h3>ملاحظة</h3>
+<p>يجب استكمال ومراجعة البيانات القانونية والتجارية الرسمية قبل إطلاق الموقع التجاري النهائي.</p>
 `
 },
 
 tr:{
+
 dir:"ltr",
+
 pageTitle:"ŞAM SÜPERMARKET | Neumünster",
+
 topBar:"Şam Süpermarket'e hoş geldiniz",
+
 name:"ŞAM SÜPERMARKET",
+
 cart:"🛒 Sepet",
+
 cartTitle:"Alışveriş Sepeti",
+
 emptyCart:"Sepetiniz boş",
+
 home:"Ana Sayfa",
+
+delivery:"Rezervasyon ve Teslimat",
+
 products:"Ürünler",
+
+order:"Şimdi Sipariş Ver",
+
 contact:"İletişim",
-location:"Bize Ulaşın",
+
 heroTitle:"ŞAM SÜPERMARKET",
+
 heroDescription:"Türk, Arap, Doğu ve uluslararası ürünler. Yüksek kalite ve uygun fiyatlar.",
+
 shopNow:"Şimdi Alışveriş Yap",
-findUs:"📍 Yol Tarifi",
+
+quickOrder:"Hızlı Sipariş",
+
+stripBooking:"⚡ Hızlı Rezervasyon",
+
+stripDelivery:"🚚 Neumünster içinde hızlı teslimat",
+
+stripPrice:"🏠 Eve teslimat 40 €",
+
+stripPayment:"💳 Nakit veya banka havalesi",
+
+deliveryTitle:"Hızlı Rezervasyon ve Teslimat",
+
+deliveryDescription:"Ürünlerinizi kolayca ayırtın veya Neumünster içinde teslimat siparişi verin.",
+
+bookingCardTitle:"Hızlı Rezervasyon",
+
+bookingCardText:"Ürünlerinizi önceden ayırtın, siparişiniz hızlıca hazırlanacaktır.",
+
+fastDeliveryTitle:"Hızlı Teslimat",
+
+fastDeliveryText:"Neumünster şehir sınırları içinde hızlı ve mümkün olduğunca kısa sürede teslimat sunuyoruz.",
+
+deliveryPriceTitle:"Eve Teslimat",
+
+deliveryPriceText:"Eve teslimat hizmeti 40 € karşılığındadır.",
+
+paymentTitle:"Ödeme Yöntemleri",
+
+paymentText:"Teslimatta nakit veya banka havalesi ile ödeme yapabilirsiniz.",
+
 categoryTitle:"Ana Kategoriler",
-categoryDescription:"Ana kategoriyi seçin. Her kategoriye ait 12 alt ürün ve görsel görüntülenecektir.",
+
+categoryDescription:"Bir ana kategori seçin. Bu kategoriye ait 12 alt ürün ve görsel görüntülenecektir.",
+
+orderTitle:"Şimdi Sipariş Ver veya Ayırt",
+
+orderDescription:"Sipariş bilgilerinizi gönderin. Rezervasyon veya teslimatı onaylamak için sizinle iletişime geçeceğiz.",
+
+nameLabel:"Ad Soyad",
+
+phoneFormLabel:"Telefon Numarası",
+
+serviceLabel:"Hizmet Türü",
+
+bookingOption:"Rezervasyon ve mağazadan teslim alma",
+
+deliveryOption:"Eve teslimat",
+
+paymentLabel:"Ödeme Yöntemi",
+
+cashOption:"Nakit ödeme",
+
+bankOption:"Banka havalesi",
+
+addressFormLabel:"Teslimat Adresi",
+
+orderDetailsLabel:"Sipariş Detayları",
+
+submitOrder:"Siparişi Gönder",
+
+orderSuccess:"Siparişiniz başarıyla gönderildi. Siparişinizi onaylamak için en kısa sürede sizinle iletişime geçeceğiz.",
+
 contactTitle:"Bizimle İletişime Geçin",
+
 contactDescription:"Şam Süpermarket'i ziyaret edebilir veya doğrudan bizi arayabilirsiniz.",
+
 address:"📍 Adres",
+
 phone:"📞 Telefon",
+
 route:"🚗 Yol Tarifi",
+
 openMaps:"Google Maps'te aç",
+
 add:"Sepete Ekle",
+
 remove:"Sil",
+
 privacy:"Gizlilik Politikası",
+
 imprint:"Künye",
+
 copyright:"© 2026 Tüm telif hakları Şam Süpermarket'e aittir.",
 
 categories:[
@@ -1165,14 +1683,14 @@ categories:[
 ],
 
 privacyText:`
-<h3>Genel Bilgiler</h3>
+<h3>Gizlilik Politikası</h3>
 <p>Şam Süpermarket ziyaretçilerinin gizliliğine önem verir ve kişisel verileri yürürlükteki yasalara uygun şekilde işler.</p>
-<h3>İletişim Bilgileri</h3>
-<p>Telefon veya diğer iletişim yollarıyla bizimle iletişime geçtiğinizde, verdiğiniz bilgiler yalnızca talebinizi işlemek ve sizinle iletişim kurmak için kullanılabilir.</p>
+<h3>İletişim ve Sipariş Bilgileri</h3>
+<p>Sipariş veya rezervasyon gönderdiğinizde ad, telefon numarası ve teslimat adresi yalnızca siparişin işlenmesi ve müşteriyle iletişim kurulması amacıyla kullanılabilir.</p>
 <h3>Harici Hizmetler</h3>
-<p>Bu web sitesi Google Maps gibi harici hizmetler içerebilir. Bu hizmetlerin kullanımı ilgili sağlayıcının gizlilik politikalarına tabi olabilir.</p>
+<p>Web sitesi Google Maps gibi harici hizmetler kullanabilir. Bu hizmetlerin kendi gizlilik politikaları geçerli olabilir.</p>
 <h3>Haklarınız</h3>
-<p>Yürürlükteki mevzuata göre kişisel verileriniz hakkında bilgi talep edebilir, düzeltilmesini veya silinmesini isteyebilirsiniz.</p>
+<p>Yasal düzenlemeler çerçevesinde kişisel verileriniz hakkında bilgi talep edebilir, düzeltilmesini veya silinmesini isteyebilirsiniz.</p>
 `,
 
 imprintText:`
@@ -1181,39 +1699,127 @@ imprintText:`
 <p>Bahnhofstraße 15<br>24534 Neumünster<br>Deutschland</p>
 <h3>İletişim</h3>
 <p>Telefon: +49 1573 1938918</p>
-<h3>İçerik</h3>
-<p>Bu web sitesinin içeriği süpermarketin tanıtımı ve sunumu amacıyla hazırlanmıştır. Resmi yayına geçmeden önce yasal ve ticari bilgilerin kontrol edilmesi önerilir.</p>
+<h3>Hizmetler</h3>
+<p>Neumünster içinde hızlı rezervasyon ve teslimat hizmeti. Eve teslimat ücreti 40 €.</p>
+<h3>Not</h3>
+<p>Resmi yayın öncesinde yasal ve ticari bilgilerin kontrol edilmesi ve gerekli bilgilerin eklenmesi önerilir.</p>
 `
 },
 
 de:{
+
 dir:"ltr",
+
 pageTitle:"SHAM SUPERMARKET | Neumünster",
+
 topBar:"Willkommen bei SHAM SUPERMARKET",
+
 name:"SHAM SUPERMARKET",
+
 cart:"🛒 Warenkorb",
+
 cartTitle:"Warenkorb",
+
 emptyCart:"Ihr Warenkorb ist leer",
+
 home:"Startseite",
+
+delivery:"Reservierung & Lieferung",
+
 products:"Produkte",
+
+order:"Jetzt bestellen",
+
 contact:"Kontakt",
-location:"Anfahrt",
+
 heroTitle:"SHAM SUPERMARKET",
+
 heroDescription:"Arabische, türkische, orientalische und internationale Produkte in hoher Qualität zu fairen Preisen.",
+
 shopNow:"Jetzt einkaufen",
-findUs:"📍 Anfahrt",
+
+quickOrder:"Schnell bestellen",
+
+stripBooking:"⚡ Schnelle Reservierung",
+
+stripDelivery:"🚚 Schnelle Lieferung in Neumünster",
+
+stripPrice:"🏠 Hauslieferung für 40 €",
+
+stripPayment:"💳 Barzahlung oder Banküberweisung",
+
+deliveryTitle:"Schnelle Reservierung und Lieferung",
+
+deliveryDescription:"Reservieren Sie Ihre Produkte oder bestellen Sie eine schnelle Lieferung innerhalb von Neumünster.",
+
+bookingCardTitle:"Schnelle Reservierung",
+
+bookingCardText:"Reservieren Sie Ihre Produkte im Voraus. Ihre Bestellung wird schnell für die Abholung vorbereitet.",
+
+fastDeliveryTitle:"Schnelle Lieferung",
+
+fastDeliveryText:"Wir bieten eine schnelle Lieferung innerhalb der Stadt Neumünster an.",
+
+deliveryPriceTitle:"Lieferung nach Hause",
+
+deliveryPriceText:"Die Hauslieferung kostet 40 €.",
+
+paymentTitle:"Zahlungsmöglichkeiten",
+
+paymentText:"Sie können bar bei der Lieferung oder per Banküberweisung bezahlen.",
+
 categoryTitle:"Hauptkategorien",
-categoryDescription:"Wählen Sie eine Hauptkategorie. Anschließend werden 12 passende Unterprodukte angezeigt.",
+
+categoryDescription:"Wählen Sie eine Hauptkategorie. Anschließend werden 12 passende Unterprodukte und Bilder angezeigt.",
+
+orderTitle:"Jetzt bestellen oder reservieren",
+
+orderDescription:"Senden Sie uns Ihre Bestelldaten. Wir kontaktieren Sie zur Bestätigung der Reservierung oder Lieferung.",
+
+nameLabel:"Name",
+
+phoneFormLabel:"Telefonnummer",
+
+serviceLabel:"Service",
+
+bookingOption:"Reservierung und Abholung im Geschäft",
+
+deliveryOption:"Lieferung nach Hause",
+
+paymentLabel:"Zahlungsart",
+
+cashOption:"Barzahlung",
+
+bankOption:"Banküberweisung",
+
+addressFormLabel:"Lieferadresse",
+
+orderDetailsLabel:"Bestelldetails",
+
+submitOrder:"Bestellung senden",
+
+orderSuccess:"Ihre Bestellung wurde erfolgreich gesendet. Wir werden Sie schnellstmöglich zur Bestätigung kontaktieren.",
+
 contactTitle:"Kontaktieren Sie uns",
-contactDescription:"Besuchen Sie den Sham Supermarkt oder rufen Sie uns direkt an.",
+
+contactDescription:"Besuchen Sie den SHAM SUPERMARKET oder rufen Sie uns direkt an.",
+
 address:"📍 Adresse",
+
 phone:"📞 Telefon",
+
 route:"🚗 Anfahrt",
+
 openMaps:"In Google Maps öffnen",
+
 add:"In den Warenkorb",
+
 remove:"Löschen",
+
 privacy:"Datenschutzerklärung",
+
 imprint:"Impressum",
+
 copyright:"© 2026 Alle Urheberrechte vorbehalten – SHAM SUPERMARKET.",
 
 categories:[
@@ -1240,14 +1846,14 @@ categories:[
 ],
 
 privacyText:`
-<h3>Allgemeine Informationen</h3>
+<h3>Datenschutzerklärung</h3>
 <p>Der SHAM SUPERMARKET respektiert die Privatsphäre seiner Besucher und verarbeitet personenbezogene Daten gemäß den geltenden gesetzlichen Bestimmungen.</p>
-<h3>Kontaktdaten</h3>
-<p>Wenn Sie uns telefonisch oder über andere Kontaktwege kontaktieren, können die von Ihnen bereitgestellten Daten ausschließlich zur Bearbeitung Ihrer Anfrage und zur Kommunikation verwendet werden.</p>
+<h3>Kontakt- und Bestelldaten</h3>
+<p>Wenn Sie eine Bestellung oder Reservierung senden, können Name, Telefonnummer und Lieferadresse ausschließlich zur Bearbeitung der Bestellung und zur Kontaktaufnahme verwendet werden.</p>
 <h3>Externe Dienste</h3>
-<p>Diese Website kann externe Dienste wie Google Maps enthalten. Bei der Nutzung dieser Dienste gelten gegebenenfalls die Datenschutzbestimmungen des jeweiligen Anbieters.</p>
+<p>Diese Website kann externe Dienste wie Google Maps verwenden. Für diese Dienste können die Datenschutzbestimmungen des jeweiligen Anbieters gelten.</p>
 <h3>Ihre Rechte</h3>
-<p>Sie können im Rahmen der geltenden Gesetze Auskunft über Ihre personenbezogenen Daten verlangen sowie deren Berichtigung oder Löschung beantragen.</p>
+<p>Sie können im Rahmen der geltenden gesetzlichen Bestimmungen Auskunft über Ihre personenbezogenen Daten sowie deren Berichtigung oder Löschung verlangen.</p>
 `,
 
 imprintText:`
@@ -1256,8 +1862,10 @@ imprintText:`
 <p>Bahnhofstraße 15<br>24534 Neumünster<br>Deutschland</p>
 <h3>Kontakt</h3>
 <p>Telefon: +49 1573 1938918</p>
-<h3>Hinweis zum Inhalt</h3>
-<p>Der Inhalt dieser Website dient der Präsentation und Information über den Supermarkt. Rechtliche und geschäftliche Angaben sollten vor der offiziellen Veröffentlichung überprüft und gegebenenfalls ergänzt werden.</p>
+<h3>Leistungen</h3>
+<p>Schnelle Reservierung und Lieferung innerhalb von Neumünster. Die Lieferung nach Hause kostet 40 €.</p>
+<h3>Hinweis</h3>
+<p>Vor der offiziellen geschäftlichen Veröffentlichung sollten alle rechtlichen und geschäftlichen Angaben überprüft und gegebenenfalls ergänzt werden.</p>
 `
 }
 
@@ -1265,52 +1873,83 @@ imprintText:`
 
 
 /* ==========================================
-   CATEGORY IMAGE SOURCES
+   CATEGORY IMAGES
 ========================================== */
 
-const categoryImages = [
+const categoryImages=[
+
 "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80",
+
 "https://images.unsplash.com/photo-1619566636858-adf3ef46400b?auto=format&fit=crop&w=900&q=80",
+
 "https://images.unsplash.com/photo-1603048297172-c92544798d5a?auto=format&fit=crop&w=900&q=80",
+
 "https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=900&q=80",
+
 "https://images.unsplash.com/photo-1544550285-f813152fb2fd?auto=format&fit=crop&w=900&q=80",
+
 "https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=900&q=80",
+
 "https://images.unsplash.com/photo-1452195100486-9cc805987862?auto=format&fit=crop&w=900&q=80",
+
 "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80",
+
 "https://images.unsplash.com/photo-1586208958839-06c17cacdf08?auto=format&fit=crop&w=900&q=80",
+
 "https://images.unsplash.com/photo-1551892374-ecf8754cf8b0?auto=format&fit=crop&w=900&q=80",
+
 "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=900&q=80",
+
 "https://images.unsplash.com/photo-1584473457493-17c4f32a5f99?auto=format&fit=crop&w=900&q=80",
+
 "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=900&q=80",
+
 "https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=80",
+
 "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80",
+
 "https://images.unsplash.com/photo-1599599810694-57a9b8aa5f8f?auto=format&fit=crop&w=900&q=80",
+
 "https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?auto=format&fit=crop&w=900&q=80",
+
 "https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?auto=format&fit=crop&w=900&q=80",
+
 "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=900&q=80",
+
 "https://images.unsplash.com/photo-1585421514738-01798e348b17?auto=format&fit=crop&w=900&q=80"
+
 ];
 
 
 /* ==========================================
-   PRODUCT IMAGE POOL
-   12 IMAGES FOR EACH CATEGORY
+   SUB PRODUCT IMAGES
 ========================================== */
 
-const productImagePool = [
+const productImagePool=[
 
 "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=700&q=80",
+
 "https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=700&q=80",
+
 "https://images.unsplash.com/photo-1607305387299-a3d9611cd469?auto=format&fit=crop&w=700&q=80",
+
 "https://images.unsplash.com/photo-1518843875459-f738682238a6?auto=format&fit=crop&w=700&q=80",
+
 "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=700&q=80",
-"https://images.unsplash.com/photo-1518843875459-f738682238a6?auto=format&fit=crop&w=700&q=80",
+
 "https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?auto=format&fit=crop&w=700&q=80",
+
 "https://images.unsplash.com/photo-1519996529931-28324d5a630e?auto=format&fit=crop&w=700&q=80",
+
 "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=700&q=80",
+
 "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=700&q=80",
+
 "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=700&q=80",
-"https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=700&q=80"
+
+"https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=700&q=80",
+
+"https://images.unsplash.com/photo-1601598851547-4302969d0614?auto=format&fit=crop&w=700&q=80"
 
 ];
 
@@ -1319,13 +1958,13 @@ const productImagePool = [
    APP STATE
 ========================================== */
 
-let currentLanguage = "ar";
+let currentLanguage="ar";
 
-let cart = [];
+let cart=[];
 
 
 /* ==========================================
-   LOAD 20 MAIN CATEGORIES
+   LOAD CATEGORIES
 ========================================== */
 
 function loadCategories(){
@@ -1334,7 +1973,8 @@ const grid=document.getElementById("categoryGrid");
 
 grid.innerHTML="";
 
-const categories=translations[currentLanguage].categories;
+const categories=
+translations[currentLanguage].categories;
 
 categories.forEach((category,index)=>{
 
@@ -1374,19 +2014,22 @@ grid.appendChild(card);
 
 /* ==========================================
    OPEN CATEGORY
-   12 SUB PRODUCTS
 ========================================== */
 
 function openCategory(categoryIndex){
 
-const section=document.getElementById("subProductsSection");
+const section=
+document.getElementById("subProductsSection");
 
-const grid=document.getElementById("subProductsGrid");
+const grid=
+document.getElementById("subProductsGrid");
 
-const title=document.getElementById("selectedCategoryTitle");
+const title=
+document.getElementById("selectedCategoryTitle");
 
 const categoryName=
-translations[currentLanguage].categories[categoryIndex];
+translations[currentLanguage]
+.categories[categoryIndex];
 
 title.innerText=categoryName;
 
@@ -1395,10 +2038,8 @@ grid.innerHTML="";
 
 for(let i=0;i<12;i++){
 
-const productNumber=i+1;
-
 const productName=
-`${categoryName} ${productNumber}`;
+categoryName+" "+(i+1);
 
 const image=
 productImagePool[
@@ -1441,11 +2082,13 @@ grid.appendChild(card);
 section.classList.add("show");
 
 setTimeout(()=>{
+
 section.scrollIntoView({
 behavior:"smooth",
 block:"start"
 });
-},150);
+
+},100);
 
 }
 
@@ -1480,7 +2123,8 @@ cart.length;
 const container=
 document.getElementById("cartItems");
 
-const t=translations[currentLanguage];
+const t=
+translations[currentLanguage];
 
 if(cart.length===0){
 
@@ -1518,6 +2162,24 @@ ${t.remove}
 container.appendChild(row);
 
 });
+
+}
+
+
+/* ==========================================
+   ORDER
+========================================== */
+
+function submitOrder(event){
+
+event.preventDefault();
+
+const t=
+translations[currentLanguage];
+
+alert(t.orderSuccess);
+
+event.target.reset();
 
 }
 
@@ -1564,7 +2226,8 @@ function changeLanguage(language){
 
 currentLanguage=language;
 
-const t=translations[language];
+const t=
+translations[language];
 
 document.documentElement.lang=language;
 document.documentElement.dir=t.dir;
@@ -1577,17 +2240,56 @@ document.getElementById("cartText").innerText=t.cart;
 document.getElementById("cartTitle").innerText=t.cartTitle;
 
 document.getElementById("navHome").innerText=t.home;
+document.getElementById("navDelivery").innerText=t.delivery;
 document.getElementById("navProducts").innerText=t.products;
+document.getElementById("navOrder").innerText=t.order;
 document.getElementById("navContact").innerText=t.contact;
-document.getElementById("navLocation").innerText=t.location;
 
 document.getElementById("heroTitle").innerText=t.heroTitle;
 document.getElementById("heroDescription").innerText=t.heroDescription;
 document.getElementById("shopNow").innerText=t.shopNow;
-document.getElementById("findUs").innerText=t.findUs;
+document.getElementById("quickOrder").innerText=t.quickOrder;
+
+document.getElementById("stripBooking").innerText=t.stripBooking;
+document.getElementById("stripDelivery").innerText=t.stripDelivery;
+document.getElementById("stripPrice").innerText=t.stripPrice;
+document.getElementById("stripPayment").innerText=t.stripPayment;
+
+document.getElementById("deliveryTitle").innerText=t.deliveryTitle;
+document.getElementById("deliveryDescription").innerText=t.deliveryDescription;
+
+document.getElementById("bookingCardTitle").innerText=t.bookingCardTitle;
+document.getElementById("bookingCardText").innerText=t.bookingCardText;
+
+document.getElementById("fastDeliveryTitle").innerText=t.fastDeliveryTitle;
+document.getElementById("fastDeliveryText").innerText=t.fastDeliveryText;
+
+document.getElementById("deliveryPriceTitle").innerText=t.deliveryPriceTitle;
+document.getElementById("deliveryPriceText").innerText=t.deliveryPriceText;
+
+document.getElementById("paymentTitle").innerText=t.paymentTitle;
+document.getElementById("paymentText").innerText=t.paymentText;
 
 document.getElementById("categoryTitle").innerText=t.categoryTitle;
 document.getElementById("categoryDescription").innerText=t.categoryDescription;
+
+document.getElementById("orderTitle").innerText=t.orderTitle;
+document.getElementById("orderDescription").innerText=t.orderDescription;
+
+document.getElementById("nameLabel").innerText=t.nameLabel;
+document.getElementById("phoneFormLabel").innerText=t.phoneFormLabel;
+document.getElementById("serviceLabel").innerText=t.serviceLabel;
+
+document.getElementById("bookingOption").innerText=t.bookingOption;
+document.getElementById("deliveryOption").innerText=t.deliveryOption;
+
+document.getElementById("paymentLabel").innerText=t.paymentLabel;
+document.getElementById("cashOption").innerText=t.cashOption;
+document.getElementById("bankOption").innerText=t.bankOption;
+
+document.getElementById("addressFormLabel").innerText=t.addressFormLabel;
+document.getElementById("orderDetailsLabel").innerText=t.orderDetailsLabel;
+document.getElementById("submitOrderBtn").innerText=t.submitOrder;
 
 document.getElementById("contactTitle").innerText=t.contactTitle;
 document.getElementById("contactDescription").innerText=t.contactDescription;
@@ -1595,7 +2297,6 @@ document.getElementById("contactDescription").innerText=t.contactDescription;
 document.getElementById("addressLabel").innerText=t.address;
 document.getElementById("phoneLabel").innerText=t.phone;
 document.getElementById("routeLabel").innerText=t.route;
-
 document.getElementById("openMapsText").innerText=t.openMaps;
 
 document.getElementById("footerName").innerText=t.name;
@@ -1619,7 +2320,9 @@ document
 btn.classList.remove("active");
 
 if(btn.innerText.toLowerCase()===language){
+
 btn.classList.add("active");
+
 }
 
 });
@@ -1639,8 +2342,6 @@ updateCart();
 /* ==========================================
    INITIAL LOAD
 ========================================== */
-
-loadCategories();
 
 changeLanguage("ar");
 
