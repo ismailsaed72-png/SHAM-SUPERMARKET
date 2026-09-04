@@ -1,909 +1,870 @@
- ```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>سوبرماركت شام | SHAM SUPERMARKET</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<meta name="description"
-content="سوبرماركت شام في Neumünster - منتجات عربية وتركية وشرقية بجودة عالية وأسعار مناسبة">
+<title>شام سوبرماركت | SHAM SUPERMARKET</title>
 
 <style>
-:root{
-    --navy:#071a35;
-    --navy2:#0c2b52;
-    --blue:#0d5ea8;
-    --gold:#f5b82e;
-    --gold2:#ffd96a;
-    --red:#c62828;
-    --green:#17834b;
-    --white:#ffffff;
-    --light:#f5f7fb;
-    --text:#152238;
-    --muted:#68758a;
-    --border:#e4e9f0;
-    --shadow:0 15px 45px rgba(8,25,50,.12);
+
+/* =========================================
+   SHAM SUPERMARKET
+   Complete Single File Design
+========================================= */
+
+:root {
+    --primary: #123047;
+    --primary-dark: #081d2c;
+    --secondary: #f4b400;
+    --secondary-hover: #d99d00;
+    --white: #ffffff;
+    --light: #f4f6f8;
+    --gray: #667085;
+    --border: #e5e7eb;
+    --shadow: 0 10px 35px rgba(0,0,0,.10);
 }
 
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-    font-family:Arial,"Noto Sans","Segoe UI",sans-serif;
-    background:var(--light);
-    color:var(--text);
-    line-height:1.6;
+body {
+    font-family:
+        Arial,
+        "Segoe UI",
+        Tahoma,
+        sans-serif;
+
+    background: var(--light);
+    color: #1f2937;
+    overflow-x: hidden;
 }
 
-a{
-    text-decoration:none;
-    color:inherit;
+/* =========================================
+   TOP BAR
+========================================= */
+
+.top-bar {
+    background: var(--primary-dark);
+    color: white;
+    text-align: center;
+    padding: 8px 20px;
+    font-size: 14px;
 }
 
-button{
-    font-family:inherit;
+/* =========================================
+   HEADER
+========================================= */
+
+header {
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    box-shadow: 0 3px 15px rgba(0,0,0,.08);
 }
 
-img{
-    max-width:100%;
-    display:block;
+.header-container {
+    max-width: 1450px;
+    margin: auto;
+    min-height: 105px;
+
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+
+    align-items: center;
+    gap: 20px;
+    padding: 10px 30px;
 }
 
-/* TOP BAR */
+/* =========================================
+   LANGUAGE
+========================================= */
 
-.top-bar{
-    background:var(--navy);
-    color:white;
-    text-align:center;
-    padding:9px 15px;
-    font-size:14px;
-    font-weight:700;
+.languages {
+    display: flex;
+    gap: 8px;
+    align-items: center;
 }
 
-/* HEADER */
-
-header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:rgba(255,255,255,.97);
-    backdrop-filter:blur(12px);
-    border-bottom:1px solid var(--border);
-    box-shadow:0 5px 25px rgba(0,0,0,.06);
+.lang-btn {
+    border: 1px solid var(--border);
+    background: #f8fafc;
+    color: var(--primary);
+    padding: 10px 13px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .25s;
 }
 
-.navbar{
-    max-width:1250px;
-    margin:auto;
-    padding:13px 18px;
-    display:flex;
-    align-items:center;
-    gap:20px;
+.lang-btn:hover,
+.lang-btn.active {
+    background: var(--primary);
+    color: white;
 }
 
-.logo-area{
-    display:flex;
-    align-items:center;
-    gap:11px;
-    margin-left:auto;
-    font-weight:900;
-    color:var(--navy);
-    min-width:max-content;
+/* =========================================
+   CENTER LOGO
+========================================= */
+
+.logo-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-.logo-placeholder{
-    width:52px;
-    height:52px;
-    border-radius:16px;
-    background:linear-gradient(135deg,var(--gold),#fff 50%,var(--red));
-    border:3px solid var(--navy);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:var(--navy);
-    font-size:27px;
-    font-weight:1000;
-    box-shadow:0 7px 20px rgba(7,26,53,.18);
+.logo-center img {
+    width: 88px;
+    height: 88px;
+    object-fit: contain;
+    display: block;
 }
 
-.logo-text{
-    font-size:21px;
-    line-height:1.1;
+/* fallback if logo missing */
+
+.logo-fallback {
+    display: none;
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: var(--secondary);
+    color: var(--primary);
+    font-size: 40px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
 }
 
-.logo-text small{
-    display:block;
-    font-size:11px;
-    letter-spacing:1.3px;
-    margin-top:4px;
-    color:var(--blue);
+/* =========================================
+   CART
+========================================= */
+
+.header-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
 }
 
-.main-nav{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:7px;
-    flex-wrap:wrap;
+.cart-button {
+    background: var(--secondary);
+    color: var(--primary-dark);
+
+    border: none;
+    border-radius: 14px;
+
+    padding: 14px 20px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    box-shadow: 0 8px 20px rgba(244,180,0,.25);
+
+    transition: .25s;
 }
 
-.main-nav a{
-    padding:9px 12px;
-    border-radius:10px;
-    font-size:14px;
-    font-weight:800;
-    transition:.25s;
+.cart-button:hover {
+    transform: translateY(-2px);
+    background: var(--secondary-hover);
 }
 
-.main-nav a:hover{
-    background:#edf3f9;
-    color:var(--blue);
+.cart-count {
+    background: var(--primary);
+    color: white;
+
+    min-width: 26px;
+    height: 26px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 13px;
 }
 
-.languages{
-    display:flex;
-    gap:5px;
-    margin-right:auto;
+/* =========================================
+   NAVIGATION
+========================================= */
+
+nav {
+    background: white;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
 }
 
-.languages button{
-    border:0;
-    background:#edf2f7;
-    padding:8px 10px;
-    border-radius:9px;
-    cursor:pointer;
-    font-weight:900;
-    font-size:12px;
-    transition:.25s;
+.nav-container {
+    max-width: 1450px;
+    margin: auto;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    padding: 16px 20px;
 }
 
-.languages button.active{
-    background:var(--navy);
-    color:white;
+.nav-container a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+    transition: .2s;
 }
 
-/* HERO */
+.nav-container a:hover {
+    color: var(--secondary);
+}
 
-.hero{
-    min-height:570px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:60px 20px;
-    color:white;
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    min-height: 560px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
 
     background:
-    linear-gradient(
-        90deg,
-        rgba(4,17,35,.94),
-        rgba(4,17,35,.60),
-        rgba(4,17,35,.78)
-    ),
-    url("https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=2000&q=90")
-    center/cover no-repeat;
-}
-
-.hero-content{
-    max-width:950px;
-}
-
-.hero-label{
-    color:var(--gold2);
-    font-size:15px;
-    font-weight:900;
-    letter-spacing:2px;
-    margin-bottom:12px;
-}
-
-.hero h1{
-    font-size:clamp(45px,8vw,88px);
-    line-height:1.05;
-    margin-bottom:15px;
-    text-shadow:0 8px 30px rgba(0,0,0,.45);
-}
-
-.hero p{
-    font-size:clamp(18px,3vw,28px);
-    font-weight:600;
-    opacity:.96;
-}
-
-.hero-buttons{
-    margin-top:30px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:12px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    display:inline-flex;
-    justify-content:center;
-    align-items:center;
-    min-height:48px;
-    padding:12px 22px;
-    border-radius:13px;
-    border:2px solid rgba(255,255,255,.85);
-    color:white;
-    background:rgba(255,255,255,.08);
-    font-weight:900;
-    cursor:pointer;
-    transition:.25s;
-}
-
-.btn:hover{
-    transform:translateY(-2px);
-}
-
-.btn-primary{
-    background:var(--gold);
-    border-color:var(--gold);
-    color:#172238;
-}
-
-.btn-facebook{
-    background:#1877f2;
-    border-color:#1877f2;
-}
-
-/* SECTIONS */
-
-section{
-    max-width:1250px;
-    margin:auto;
-    padding:75px 18px;
-}
-
-.section-title{
-    text-align:center;
-    font-size:clamp(30px,5vw,42px);
-    color:var(--navy);
-    margin-bottom:9px;
-}
-
-.section-subtitle{
-    text-align:center;
-    max-width:750px;
-    margin:0 auto 35px;
-    color:var(--muted);
-    font-size:16px;
-}
-
-/* FEATURES */
-
-.features{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:18px;
-    margin-top:-40px;
-    position:relative;
-    z-index:5;
-}
-
-.feature{
-    background:white;
-    border:1px solid var(--border);
-    border-radius:20px;
-    padding:25px;
-    text-align:center;
-    box-shadow:var(--shadow);
-}
-
-.feature-icon{
-    font-size:35px;
-    margin-bottom:9px;
-}
-
-.feature h3{
-    color:var(--navy);
-    margin-bottom:5px;
-}
-
-.feature p{
-    color:var(--muted);
-    font-size:14px;
-}
-
-/* PRODUCTS */
-
-.categories{
-    display:flex;
-    gap:9px;
-    overflow-x:auto;
-    padding:5px 2px 15px;
-    scrollbar-width:thin;
-}
-
-.category{
-    min-width:140px;
-    border:1px solid var(--border);
-    background:white;
-    color:var(--navy);
-    border-radius:14px;
-    padding:13px 15px;
-    cursor:pointer;
-    font-weight:900;
-    transition:.25s;
-    white-space:nowrap;
-}
-
-.category.active{
-    background:var(--navy);
-    color:white;
-    border-color:var(--navy);
-}
-
-.products-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-    margin-top:25px;
-}
-
-.product-card{
-    background:white;
-    border:1px solid var(--border);
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 9px 30px rgba(8,25,50,.08);
-    transition:.25s;
-}
+        linear-gradient(
+            rgba(7,24,37,.65),
+            rgba(7,24,37,.78)
+        ),
+        url("./assets/hero.jpg");
 
-.product-card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 18px 45px rgba(8,25,50,.14);
-}
-
-.product-image{
-    width:100%;
-    height:185px;
-    object-fit:cover;
-    background:#eef2f7;
-}
-
-.product-body{
-    padding:17px;
-}
+    background-size: cover;
+    background-position: center;
 
-.product-category{
-    color:var(--blue);
-    font-size:12px;
-    font-weight:900;
-    margin-bottom:4px;
+    padding: 80px 20px;
 }
 
-.product-name{
-    color:var(--navy);
-    font-size:19px;
-    font-weight:900;
+.hero-content {
+    max-width: 950px;
+    color: white;
 }
 
-.product-description{
-    color:var(--muted);
-    font-size:13px;
-    margin-top:4px;
-    min-height:40px;
+.hero-subtitle {
+    color: #f7d36a;
+    letter-spacing: 4px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-weight: bold;
 }
 
-.product-bottom{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
-    margin-top:14px;
+.hero h1 {
+    font-size: clamp(42px, 7vw, 85px);
+    margin-bottom: 20px;
+    line-height: 1.1;
 }
 
-.product-price{
-    font-size:20px;
-    font-weight:1000;
-    color:var(--navy);
+.hero p {
+    font-size: clamp(18px, 2vw, 25px);
+    margin-bottom: 35px;
 }
-
-.add-button{
-    border:0;
-    background:var(--navy);
-    color:white;
-    border-radius:11px;
-    padding:10px 13px;
-    cursor:pointer;
-    font-weight:900;
-    transition:.25s;
-}
-
-.add-button:hover{
-    background:var(--blue);
-}
-
-/* MEDIA */
 
-.media-section{
-    max-width:1250px;
-    margin:0 auto;
-    padding:0 18px 75px;
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
-.media-box{
-    background:
-    radial-gradient(circle at top right,#164a82,var(--navy) 60%);
-    color:white;
-    border-radius:28px;
-    padding:30px;
-    box-shadow:0 20px 55px rgba(7,26,53,.25);
-}
+.main-btn,
+.facebook-btn {
+    border: none;
+    padding: 17px 30px;
 
-.media-grid{
-    display:grid;
-    grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);
-    gap:22px;
-    margin-top:25px;
-}
+    border-radius: 13px;
 
-.video-container{
-    background:#020b18;
-    border-radius:20px;
-    padding:7px;
-    overflow:hidden;
-    border:1px solid rgba(255,255,255,.13);
-}
+    font-size: 17px;
+    font-weight: bold;
 
-.store-video{
-    width:100%;
-    min-height:330px;
-    max-height:650px;
-    display:block;
-    object-fit:contain;
-    background:#020b18;
-    border-radius:15px;
-}
+    cursor: pointer;
 
-.gallery{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
+    transition: .25s;
 }
 
-.gallery img{
-    width:100%;
-    height:165px;
-    object-fit:cover;
-    border-radius:15px;
-    border:1px solid rgba(255,255,255,.13);
-    transition:.25s;
+.main-btn {
+    background: var(--secondary);
+    color: var(--primary-dark);
 }
 
-.gallery img:hover{
-    transform:scale(1.02);
+.facebook-btn {
+    background: #1877f2;
+    color: white;
 }
 
-.facebook-card{
-    margin-top:15px;
-    padding:17px;
-    border-radius:16px;
-    background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.12);
+.main-btn:hover,
+.facebook-btn:hover {
+    transform: translateY(-3px);
 }
 
-/* CONTACT */
+/* =========================================
+   MAIN CONTENT
+========================================= */
 
-.contact-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:20px;
+main {
+    max-width: 1450px;
+    margin: auto;
+    padding: 80px 25px;
 }
 
-.contact-card{
-    background:white;
-    border:1px solid var(--border);
-    border-radius:20px;
-    padding:25px;
-    box-shadow:var(--shadow);
-}
+.section-title {
+    text-align: center;
+    margin-bottom: 18px;
 
-.contact-icon{
-    font-size:32px;
-    margin-bottom:7px;
+    color: var(--primary);
+    font-size: clamp(30px, 4vw, 48px);
 }
 
-.contact-card h3{
-    color:var(--navy);
-    margin-bottom:8px;
-}
+.section-description {
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto 50px;
 
-.contact-card p{
-    color:var(--muted);
+    color: var(--gray);
+    line-height: 1.8;
+    font-size: 17px;
 }
 
-.contact-card a{
-    color:var(--blue);
-    font-weight:800;
-}
+/* =========================================
+   CATEGORY GRID
+   20 MAIN PRODUCTS
+========================================= */
 
-.map-button{
-    display:inline-flex;
-    margin-top:15px;
-    background:var(--navy);
-    color:white!important;
-    padding:10px 14px;
-    border-radius:10px;
-}
+.category-grid {
+    display: grid;
 
-.hours-table{
-    margin-top:12px;
-}
+    grid-template-columns:
+        repeat(auto-fit, minmax(210px, 1fr));
 
-.hours-row{
-    display:flex;
-    justify-content:space-between;
-    gap:15px;
-    padding:7px 0;
-    border-bottom:1px solid #edf0f4;
+    gap: 25px;
 }
-
-/* FOOTER */
 
-footer{
-    background:var(--navy);
-    color:white;
-    padding:50px 18px;
-}
+.category-card {
+    background: white;
 
-.footer-inner{
-    max-width:1250px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:2fr 1fr 1fr;
-    gap:30px;
-}
+    border-radius: 20px;
 
-.footer-title{
-    font-size:27px;
-    font-weight:1000;
-    margin-bottom:10px;
-}
+    overflow: hidden;
 
-.footer-text{
-    color:#c4d0df;
-    font-size:14px;
-}
+    box-shadow: var(--shadow);
 
-.footer-heading{
-    font-weight:900;
-    margin-bottom:10px;
-}
+    cursor: pointer;
 
-.footer-links{
-    display:flex;
-    flex-direction:column;
-    gap:7px;
-}
+    transition: .3s;
 
-.footer-links a{
-    color:#c4d0df;
-    font-size:14px;
+    position: relative;
 }
-
-/* CART */
 
-.cart-floating{
-    position:fixed;
-    bottom:20px;
-    left:20px;
-    z-index:1500;
+.category-card:hover {
+    transform: translateY(-8px);
 }
 
-.cart-button{
-    border:0;
-    background:var(--gold);
-    color:#172238;
-    border-radius:15px;
-    padding:13px 18px;
-    cursor:pointer;
-    font-weight:1000;
-    box-shadow:0 12px 35px rgba(0,0,0,.30);
+.category-image {
+    height: 210px;
+    overflow: hidden;
+    position: relative;
 }
 
-.cart-drawer{
-    position:fixed;
-    left:0;
-    bottom:0;
-    width:min(430px,100%);
-    max-height:82vh;
-    overflow:auto;
-    z-index:1600;
-    background:white;
-    border-radius:0 22px 0 0;
-    padding:22px;
-    box-shadow:0 -15px 50px rgba(0,0,0,.25);
-    display:none;
+.category-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .4s;
 }
 
-.cart-drawer.open{
-    display:block;
+.category-card:hover img {
+    transform: scale(1.08);
 }
 
-.cart-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:12px;
+.category-info {
+    padding: 20px;
+    text-align: center;
 }
 
-.close-cart{
-    border:0;
-    background:#edf1f5;
-    padding:7px 10px;
-    border-radius:9px;
-    cursor:pointer;
+.category-info h3 {
+    color: var(--primary);
+    font-size: 20px;
+    margin-bottom: 8px;
 }
 
-.cart-item{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
-    padding:12px 0;
-    border-bottom:1px solid #edf0f4;
+.category-info p {
+    color: var(--gray);
+    font-size: 14px;
 }
 
-.cart-item button{
-    border:0;
-    background:#fee;
-    color:#c62828;
-    border-radius:8px;
-    padding:5px 8px;
-    cursor:pointer;
-}
+/* =========================================
+   SUB PRODUCTS SECTION
+========================================= */
 
-.cart-total{
-    margin-top:18px;
-    font-size:21px;
-    font-weight:1000;
-    color:var(--navy);
+.sub-products-section {
+    margin-top: 80px;
+    display: none;
 }
 
-.order-button{
-    display:block;
-    width:100%;
-    text-align:center;
-    margin-top:15px;
-    padding:13px;
-    border-radius:12px;
-    background:#1877f2;
-    color:white;
-    font-weight:900;
+.sub-products-section.show {
+    display: block;
+    animation: fadeIn .4s ease;
 }
-
-/* MOBILE */
-
-@media(max-width:900px){
 
-    .navbar{
-        flex-wrap:wrap;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
 
-    .main-nav{
-        order:3;
-        width:100%;
-        justify-content:center;
-    }
-
-    .languages{
-        margin-right:0;
-    }
-
-    .logo-area{
-        margin-left:0;
-    }
-
-    .media-grid,
-    .footer-inner{
-        grid-template-columns:1fr;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-@media(max-width:600px){
+.selected-category {
+    text-align: center;
+    margin-bottom: 40px;
 
-    .hero{
-        min-height:500px;
-    }
-
-    .hero h1{
-        font-size:48px;
-    }
-
-    section{
-        padding:55px 14px;
-    }
-
-    .media-section{
-        padding-left:14px;
-        padding-right:14px;
-    }
-
-    .media-box{
-        padding:18px;
-        border-radius:20px;
-    }
-
-    .gallery img{
-        height:125px;
-    }
-
-    .store-video{
-        min-height:230px;
-    }
-
-    .main-nav a{
-        font-size:12px;
-        padding:7px 8px;
-    }
-
-    .logo-text{
-        font-size:17px;
-    }
-
-    .logo-placeholder{
-        width:45px;
-        height:45px;
-    }
-
-    .cart-floating{
-        left:12px;
-        bottom:12px;
-    }
+    color: var(--primary);
+    font-size: 35px;
 }
 
-/* LTR */
+.sub-products-grid {
+    display: grid;
 
-html[dir="ltr"] .logo-area{
-    margin-left:0;
-    margin-right:auto;
+    grid-template-columns:
+        repeat(auto-fit, minmax(180px, 1fr));
+
+    gap: 22px;
 }
 
-html[dir="ltr"] .languages{
-    margin-right:0;
-    margin-left:auto;
+.product-card {
+    background: white;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,.08);
+
+    transition: .25s;
 }
 
-html[dir="ltr"] .cart-floating{
-    left:auto;
-    right:20px;
+.product-card:hover {
+    transform: translateY(-6px);
 }
 
-html[dir="ltr"] .cart-drawer{
-    left:auto;
-    right:0;
-    border-radius:22px 0 0 0;
+.product-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
 }
+
+.product-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.product-info h4 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.product-info p {
+    color: var(--gray);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.add-btn {
+    width: 100%;
+
+    border: none;
+
+    background: var(--primary);
+    color: white;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition: .2s;
+}
+
+.add-btn:hover {
+    background: var(--secondary);
+    color: var(--primary-dark);
+}
+
+/* =========================================
+   CART MODAL
+========================================= */
+
+.cart-modal {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.55);
+
+    z-index: 10000;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.cart-modal.show {
+    display: flex;
+}
+
+.cart-box {
+    background: white;
+
+    width: 100%;
+    max-width: 600px;
+
+    max-height: 80vh;
+
+    overflow-y: auto;
+
+    border-radius: 22px;
+
+    padding: 30px;
+
+    position: relative;
+}
+
+.close-cart {
+    position: absolute;
+
+    top: 15px;
+    left: 15px;
+
+    border: none;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    background: #eee;
+
+    font-size: 20px;
+}
+
+.cart-box h2 {
+    color: var(--primary);
+    margin-bottom: 25px;
+}
+
+.cart-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    border-bottom: 1px solid var(--border);
+
+    padding: 15px 0;
+}
+
+.remove-btn {
+    border: none;
+
+    background: #dc3545;
+    color: white;
+
+    padding: 7px 12px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.empty-cart {
+    text-align: center;
+    color: var(--gray);
+    padding: 40px 0;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    background: var(--primary-dark);
+    color: white;
+
+    padding: 50px 20px;
+
+    text-align: center;
+}
+
+footer h2 {
+    margin-bottom: 15px;
+}
+
+footer p {
+    color: #cbd5e1;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .header-container {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        padding: 15px;
+    }
+
+    .languages,
+    .header-actions {
+        justify-content: center;
+    }
+
+    .logo-center {
+        order: -1;
+    }
+
+    .nav-container {
+        gap: 15px;
+        font-size: 14px;
+    }
+
+    .hero {
+        min-height: 480px;
+    }
+
+    .category-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .sub-products-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .category-image {
+        height: 150px;
+    }
+
+}
+
+@media (max-width: 450px) {
+
+    .category-grid,
+    .sub-products-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
 </style>
 </head>
 
+
 <body>
 
-<!-- TOP BAR -->
+
+<!-- =========================================
+     TOP BAR
+========================================= -->
 
 <div class="top-bar" id="topBar">
-مرحباً بكم في سوبرماركت شام • Neumünster
+    مرحباً بكم في سوبرماركت الشام
 </div>
 
-<!-- HEADER -->
+
+<!-- =========================================
+     HEADER
+========================================= -->
 
 <header>
 
-<div class="navbar">
+<div class="header-container">
 
-<div class="logo-area">
 
-<div class="logo-placeholder">
-ش
-</div>
-
-<div class="logo-text">
-سوبرماركت شام
-<small>SHAM SUPERMARKET</small>
-</div>
-
-</div>
-
-<nav class="main-nav">
-
-<a href="#home"
-data-ar="الرئيسية"
-data-tr="Ana Sayfa"
-data-de="Startseite">
-الرئيسية
-</a>
-
-<a href="#products"
-data-ar="المنتجات"
-data-tr="Ürünler"
-data-de="Produkte">
-المنتجات
-</a>
-
-<a href="#media"
-data-ar="الصور والفيديو"
-data-tr="Fotoğraf & Video"
-data-de="Fotos & Video">
-الصور والفيديو
-</a>
-
-<a href="#contact"
-data-ar="التواصل"
-data-tr="İletişim"
-data-de="Kontakt">
-التواصل
-</a>
-
-</nav>
+<!-- LANGUAGES -->
 
 <div class="languages">
 
-<button class="active" data-language="ar">
+<button
+class="lang-btn active"
+onclick="changeLanguage('ar')">
 AR
 </button>
 
-<button data-language="tr">
+<button
+class="lang-btn"
+onclick="changeLanguage('tr')">
 TR
 </button>
 
-<button data-language="de">
+<button
+class="lang-btn"
+onclick="changeLanguage('de')">
 DE
 </button>
 
 </div>
 
+
+<!-- OFFICIAL LOGO CENTER -->
+
+<div class="logo-center">
+
+<img
+src="./assets/logo.png"
+alt="شام سوبرماركت"
+id="officialLogo"
+
+onerror="
+this.style.display='none';
+document.getElementById('logoFallback').style.display='flex';
+">
+
+<div
+class="logo-fallback"
+id="logoFallback">
+ش
 </div>
+
+</div>
+
+
+<!-- CART -->
+
+<div class="header-actions">
+
+<button
+class="cart-button"
+onclick="openCart()">
+
+<span id="cartText">
+🛒 السلة
+</span>
+
+<span
+class="cart-count"
+id="cartCount">
+0
+</span>
+
+</button>
+
+</div>
+
+
+</div>
+
+
+<!-- NAV -->
+
+<nav>
+
+<div class="nav-container">
+
+<a href="#home" id="navHome">
+الرئيسية
+</a>
+
+<a href="#categories" id="navProducts">
+المنتجات
+</a>
+
+<a href="#about" id="navAbout">
+من نحن
+</a>
+
+<a href="#contact" id="navContact">
+التواصل
+</a>
+
+</div>
+
+</nav>
 
 </header>
 
-<!-- MAIN -->
 
-<main id="home">
 
-<!-- HERO -->
+<!-- =========================================
+     HERO
+========================================= -->
 
-<section class="hero">
+<section
+class="hero"
+id="home">
 
 <div class="hero-content">
 
-<div class="hero-label">
+<div
+class="hero-subtitle"
+id="heroLocation">
 NEUMÜNSTER • DEUTSCHLAND
 </div>
 
-<h1>
-سوبرماركت شام
+<h1 id="heroTitle">
+سوبرماركت الشام
 </h1>
 
-<p id="heroText">
-منتجات عربية وتركية وشرقية • جودة • تنوع • أسعار مناسبة
+<p id="heroDescription">
+منتجات عربية وتركية وشرقية وغربية
+بجودة عالية وأسعار مناسبة
 </p>
 
 <div class="hero-buttons">
 
-<a href="#products"
-class="btn btn-primary"
-id="shopButton">
-تسوّق الآن
-</a>
-
-<a href="https://www.facebook.com/Deutschland-Schleswig-Holstein-Neum%C3%BCnster-Bahnhofstra%C3%9Fe-15-102011282080089/"
-target="_blank"
-rel="noopener"
-class="btn btn-facebook">
+<button
+class="facebook-btn"
+onclick="window.open('https://facebook.com','_blank')">
 Facebook
-</a>
+</button>
+
+<button
+class="main-btn"
+onclick="document.getElementById('categories').scrollIntoView()"
+id="shopNow">
+تسوق الآن
+</button>
 
 </div>
 
@@ -911,986 +872,544 @@ Facebook
 
 </section>
 
-<!-- FEATURES -->
-
-<section style="padding-top:0;">
-
-<div class="features">
-
-<div class="feature">
-
-<div class="feature-icon">
-🥬
-</div>
-
-<h3 id="feature1Title">
-منتجات متنوعة
-</h3>
-
-<p id="feature1Text">
-منتجات عربية وتركية وشرقية
-</p>
-
-</div>
 
 
-<div class="feature">
+<!-- =========================================
+     MAIN PRODUCTS
+========================================= -->
 
-<div class="feature-icon">
-⭐
-</div>
-
-<h3 id="feature2Title">
-جودة عالية
-</h3>
-
-<p id="feature2Text">
-اختيار مميز للمنتجات اليومية
-</p>
-
-</div>
+<main>
 
 
-<div class="feature">
-
-<div class="feature-icon">
-💶
-</div>
-
-<h3 id="feature3Title">
-أسعار مناسبة
-</h3>
-
-<p id="feature3Text">
-قيمة ممتازة للعائلة والتسوق اليومي
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
-📍
-</div>
-
-<h3 id="feature4Title">
-في Neumünster
-</h3>
-
-<p id="feature4Text">
-موقع مناسب وسهل الوصول
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- PRODUCTS -->
-
-<section id="products">
-
-<h2 class="section-title" id="productsTitle">
-منتجاتنا
-</h2>
-
-<p class="section-subtitle" id="productsSubtitle">
-مجموعة مختارة من المنتجات اليومية والعربية والتركية والشرقية
-</p>
-
-<div class="categories" id="categories"></div>
-
-<div class="products-grid" id="productsGrid"></div>
-
-</section>
-
-<!-- MEDIA -->
-
-<div class="media-section" id="media">
-
-<div class="media-box">
+<section id="categories">
 
 <h2
 class="section-title"
-id="mediaTitle"
-style="color:#fff;">
-صور وفيديو سوبرماركت شام
+id="categoryTitle">
+الأقسام الرئيسية
 </h2>
 
 <p
-class="section-subtitle"
-id="mediaSubtitle"
-style="color:#d3deeb;">
-شاهد الصور والفيديو وتابعنا على Facebook
-</p>
+class="section-description"
+id="categoryDescription">
 
-<div class="media-grid">
-
-<!-- VIDEO -->
-
-<div>
-
-<div class="video-container">
-
-<video
-class="store-video"
-controls
-playsinline
-webkit-playsinline
-preload="metadata"
-poster="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=85">
-
-<source
-src="store-video.mp4"
-type="video/mp4">
-
-متصفحك لا يدعم تشغيل الفيديو.
-
-</video>
-
-</div>
-
-<div class="facebook-card">
-
-<p id="videoHelp">
-🎥 ضع ملف الفيديو باسم store-video.mp4 بجانب index.html.
-</p>
-
-<a
-href="https://www.facebook.com/Deutschland-Schleswig-Holstein-Neum%C3%BCnster-Bahnhofstra%C3%9Fe-15-102011282080089/"
-target="_blank"
-rel="noopener"
-class="btn btn-facebook"
-id="facebookVideoButton">
-
-شاهد Facebook
-
-</a>
-
-</div>
-
-</div>
-
-<!-- GALLERY -->
-
-<div>
-
-<div class="gallery">
-
-<img
-src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=85"
-alt="Supermarket">
-
-<img
-src="https://images.unsplash.com/photo-1579113800032-c38bd7635818?auto=format&fit=crop&w=900&q=85"
-alt="Fresh food">
-
-<img
-src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=900&q=85"
-alt="Grocery store">
-
-<img
-src="https://images.unsplash.com/photo-1601598851547-4302969d6c9a?auto=format&fit=crop&w=900&q=85"
-alt="Market">
-
-</div>
-
-<div class="facebook-card">
-
-<p id="facebookText">
-📘 تابع صفحة سوبرماركت شام على Facebook للعروض والصور الجديدة.
-</p>
-
-<a
-href="https://www.facebook.com/Deutschland-Schleswig-Holstein-Neum%C3%BCnster-Bahnhofstra%C3%9Fe-15-102011282080089/"
-target="_blank"
-rel="noopener"
-class="btn btn-facebook"
-id="facebookButton">
-
-صفحة Facebook
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-<h2 class="section-title" id="contactTitle">
-تواصل معنا
-</h2>
-
-<p class="section-subtitle" id="contactSubtitle">
-سوبرماركت شام – Neumünster
-</p>
-
-<div class="contact-grid">
-
-<!-- ADDRESS -->
-
-<div class="contact-card">
-
-<div class="contact-icon">
-📍
-</div>
-
-<h3 id="addressTitle">
-العنوان
-</h3>
-
-<p>
-Bahnhofstraße 15<br>
-24534 Neumünster<br>
-Deutschland
-</p>
-
-<a
-class="map-button"
-target="_blank"
-rel="noopener"
-href="https://www.google.com/maps/search/?api=1&query=Bahnhofstraße+15,+24534+Neumünster,+Germany">
-
-<span id="mapButton">
-فتح الخريطة
-</span>
-
-</a>
-
-</div>
-
-<!-- PHONE -->
-
-<div class="contact-card">
-
-<div class="contact-icon">
-☎️
-</div>
-
-<h3 id="phoneTitle">
-الهاتف
-</h3>
-
-<p>
-
-<a href="tel:+4915214829080">
-+49 152 14829080
-</a>
+اختر القسم الذي تبحث عنه.
+كل قسم رئيسي يحتوي على منتجات وأنواع فرعية متعددة.
 
 </p>
 
-<div class="hours-table">
 
-<div class="hours-row">
-<span id="monday">الاثنين</span>
-<strong>08:30 – 20:00</strong>
-</div>
+<!-- 20 MAIN CATEGORIES -->
 
-<div class="hours-row">
-<span id="tuesday">الثلاثاء</span>
-<strong>08:30 – 20:00</strong>
-</div>
-
-<div class="hours-row">
-<span id="wednesday">الأربعاء</span>
-<strong>08:30 – 20:00</strong>
-</div>
-
-<div class="hours-row">
-<span id="thursday">الخميس</span>
-<strong>08:30 – 20:00</strong>
-</div>
-
-<div class="hours-row">
-<span id="friday">الجمعة</span>
-<strong>08:30 – 20:00</strong>
-</div>
-
-<div class="hours-row">
-<span id="saturday">السبت</span>
-<strong>08:30 – 20:00</strong>
-</div>
-
-<div class="hours-row">
-<span id="sunday">الأحد</span>
-<strong id="closed">مغلق</strong>
-</div>
-
-</div>
-
-</div>
-
-<!-- FACEBOOK -->
-
-<div class="contact-card">
-
-<div class="contact-icon">
-📘
-</div>
-
-<h3>
-Facebook
-</h3>
-
-<p id="facebookContactText">
-تابعنا على Facebook لمعرفة العروض والأخبار والصور الجديدة.
-</p>
-
-<a
-href="https://www.facebook.com/Deutschland-Schleswig-Holstein-Neum%C3%BCnster-Bahnhofstra%C3%9Fe-15-102011282080089/"
-target="_blank"
-rel="noopener"
-class="map-button"
-style="background:#1877f2;">
-
-Facebook
-
-</a>
-
-</div>
+<div
+class="category-grid"
+id="categoryGrid">
 
 </div>
 
 </section>
 
+
+
+<!-- =========================================
+     SUB PRODUCTS
+========================================= -->
+
+<section
+class="sub-products-section"
+id="subProductsSection">
+
+<h2
+class="selected-category"
+id="selectedCategoryTitle">
+</h2>
+
+<div
+class="sub-products-grid"
+id="subProductsGrid">
+
+</div>
+
+</section>
+
+
 </main>
 
-<!-- FOOTER -->
 
-<footer>
 
-<div class="footer-inner">
+<!-- =========================================
+     FOOTER
+========================================= -->
 
-<div>
+<footer
+id="contact">
 
-<div class="footer-title">
-سوبرماركت شام
-</div>
+<h2 id="footerName">
+سوبرماركت الشام
+</h2>
 
-<p
-class="footer-text"
-id="footerText">
-
-متجرك للمنتجات العربية والتركية والشرقية في Neumünster.
-
+<p id="footerText">
+نويمنستر - ألمانيا
 </p>
-
-</div>
-
-
-<div>
-
-<div
-class="footer-heading"
-id="quickLinks">
-
-روابط سريعة
-
-</div>
-
-<div class="footer-links">
-
-<a href="#home">
-الرئيسية
-</a>
-
-<a href="#products">
-المنتجات
-</a>
-
-<a href="#media">
-الصور والفيديو
-</a>
-
-<a href="#contact">
-التواصل
-</a>
-
-</div>
-
-</div>
-
-
-<div>
-
-<div
-class="footer-heading"
-id="footerContact">
-
-التواصل
-
-</div>
-
-<div class="footer-links">
-
-<a href="tel:+4915214829080">
-+49 152 14829080
-</a>
-
-<a
-href="https://www.facebook.com/Deutschland-Schleswig-Holstein-Neum%C3%BCnster-Bahnhofstra%C3%9Fe-15-102011282080089/"
-target="_blank">
-
-Facebook
-
-</a>
-
-<span class="footer-text">
-
-Bahnhofstraße 15<br>
-24534 Neumünster
-
-</span>
-
-</div>
-
-</div>
-
-</div>
 
 </footer>
 
-<!-- CART BUTTON -->
 
-<div class="cart-floating">
 
-<button
-class="cart-button"
-id="cartButton">
-
-🛒
-
-<span id="cartButtonText">
-السلة
-</span>
-
-(
-
-<span id="cartCount">
-0
-</span>
-
-)
-
-</button>
-
-</div>
-
-<!-- CART -->
+<!-- =========================================
+     CART MODAL
+========================================= -->
 
 <div
-class="cart-drawer"
-id="cartDrawer">
+class="cart-modal"
+id="cartModal">
 
-<div class="cart-header">
-
-<h3 id="cartTitle">
-سلة المشتريات
-</h3>
+<div class="cart-box">
 
 <button
 class="close-cart"
-id="closeCart">
-✕
+onclick="closeCart()">
+×
 </button>
 
-</div>
+<h2 id="cartTitle">
+سلة التسوق
+</h2>
 
-<div id="cartItems"></div>
+<div id="cartItems">
 
 <div
-class="cart-total"
-id="cartTotal">
-
-المجموع: €0.00
+class="empty-cart"
+id="emptyCart">
+السلة فارغة
+</div>
 
 </div>
 
-<a
-href="https://www.facebook.com/Deutschland-Schleswig-Holstein-Neum%C3%BCnster-Bahnhofstra%C3%9Fe-15-102011282080089/"
-target="_blank"
-class="order-button"
-id="orderButton">
-
-📘 اطلب أو تواصل معنا عبر Facebook
-
-</a>
-
-<p
-style="margin-top:10px;color:#68758a;font-size:13px;"
-id="cartNote">
-
-هذه السلة للعرض داخل الموقع ويمكن التواصل معنا عبر Facebook لإتمام الطلب.
-
-</p>
+</div>
 
 </div>
+
+
 
 <script>
 
-/* =========================
-   PRODUCTS
-========================= */
+/* =========================================
+   TRANSLATIONS
+========================================= */
 
-const products = [
+const translations = {
 
-{
-category:"مخبوزات",
-ar:"خبز عربي طازج",
-tr:"Taze Arap Ekmeği",
-de:"Frisches arabisches Brot",
-price:1.50,
-image:"https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=900&q=85"
+ar: {
+
+dir: "rtl",
+
+pageTitle:
+"شام سوبرماركت | سوبرماركت الشام",
+
+topBar:
+"مرحباً بكم في سوبرماركت الشام",
+
+cart:
+"🛒 السلة",
+
+cartTitle:
+"سلة التسوق",
+
+emptyCart:
+"السلة فارغة",
+
+home:
+"الرئيسية",
+
+products:
+"المنتجات",
+
+about:
+"من نحن",
+
+contact:
+"التواصل",
+
+heroTitle:
+"سوبرماركت الشام",
+
+heroDescription:
+"منتجات عربية وتركية وشرقية وغربية بجودة عالية وأسعار مناسبة",
+
+shopNow:
+"تسوق الآن",
+
+categoryTitle:
+"الأقسام الرئيسية",
+
+categoryDescription:
+"اختر القسم الذي تبحث عنه. كل قسم رئيسي يحتوي على منتجات وأنواع فرعية متعددة.",
+
+footerName:
+"سوبرماركت الشام",
+
+footerText:
+"نويمنستر - ألمانيا",
+
+add:
+"أضف إلى السلة",
+
+remove:
+"حذف",
+
+categories: [
+"الخضروات",
+"الفواكه",
+"اللحوم",
+"الدجاج",
+"الأسماك",
+"الألبان",
+"الأجبان",
+"الخبز",
+"الأرز",
+"المعكرونة",
+"التوابل",
+"المعلبات",
+"الحلويات",
+"المشروبات",
+"القهوة والشاي",
+"المكسرات",
+"المنتجات العربية",
+"المنتجات التركية",
+"المنتجات الآسيوية",
+"المنظفات"
+]
+
 },
 
-{
-category:"ألبان",
-ar:"لبنة",
-tr:"Labne",
-de:"Labneh",
-price:3.49,
-image:"https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=900&q=85"
+
+
+tr: {
+
+dir: "ltr",
+
+pageTitle:
+"ŞAM SÜPERMARKET | Neumünster",
+
+topBar:
+"Şam Süpermarket'e hoş geldiniz",
+
+cart:
+"🛒 Sepet",
+
+cartTitle:
+"Alışveriş Sepeti",
+
+emptyCart:
+"Sepetiniz boş",
+
+home:
+"Ana Sayfa",
+
+products:
+"Ürünler",
+
+about:
+"Hakkımızda",
+
+contact:
+"İletişim",
+
+heroTitle:
+"ŞAM SÜPERMARKET",
+
+heroDescription:
+"Türk, Arap, Doğu ve uluslararası ürünler. Kaliteli ürünler, uygun fiyatlar.",
+
+shopNow:
+"Şimdi Alışveriş Yap",
+
+categoryTitle:
+"Ana Kategoriler",
+
+categoryDescription:
+"Aradığınız kategoriyi seçin. Her ana kategori birçok alt ürün içerir.",
+
+footerName:
+"ŞAM SÜPERMARKET",
+
+footerText:
+"Neumünster - Almanya",
+
+add:
+"Sepete Ekle",
+
+remove:
+"Sil",
+
+categories: [
+"Sebzeler",
+"Meyveler",
+"Et Ürünleri",
+"Tavuk",
+"Balık",
+"Süt Ürünleri",
+"Peynirler",
+"Ekmek",
+"Pirinç",
+"Makarna",
+"Baharatlar",
+"Konserveler",
+"Şekerleme",
+"İçecekler",
+"Kahve ve Çay",
+"Kuruyemiş",
+"Arap Ürünleri",
+"Türk Ürünleri",
+"Asya Ürünleri",
+"Temizlik"
+]
+
 },
 
-{
-category:"زيتون ومخللات",
-ar:"زيتون أخضر",
-tr:"Yeşil Zeytin",
-de:"Grüne Oliven",
-price:4.99,
-image:"https://images.unsplash.com/photo-1600181834673-3d8c6e6a2a57?auto=format&fit=crop&w=900&q=85"
-},
 
-{
-category:"بهارات",
-ar:"بهارات مشكلة",
-tr:"Karışık Baharat",
-de:"Gewürzmischung",
-price:2.99,
-image:"https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=900&q=85"
-},
 
-{
-category:"أرز وحبوب",
-ar:"أرز بسمتي",
-tr:"Basmati Pirinç",
-de:"Basmati-Reis",
-price:4.49,
-image:"https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=900&q=85"
-},
+de: {
 
-{
-category:"مشروبات",
-ar:"مشروبات شرقية",
-tr:"Doğu İçecekleri",
-de:"Orientalische Getränke",
-price:2.49,
-image:"https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=85"
-},
+dir: "ltr",
 
-{
-category:"فواكه وخضار",
-ar:"خضار طازجة",
-tr:"Taze Sebzeler",
-de:"Frisches Gemüse",
-price:3.29,
-image:"https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=900&q=85"
-},
+pageTitle:
+"SHAM SUPERMARKET | Neumünster",
 
-{
-category:"حلويات",
-ar:"حلويات شرقية",
-tr:"Türk Tatlıları",
-de:"Orientalische Süßwaren",
-price:5.99,
-image:"https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=900&q=85"
-},
+topBar:
+"Willkommen bei Sham Supermarkt",
 
-{
-category:"معلبات",
-ar:"حمص معلب",
-tr:"Konserve Humus",
-de:"Kichererbsen aus der Dose",
-price:2.39,
-image:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=85"
-},
+cart:
+"🛒 Warenkorb",
 
-{
-category:"مكسرات",
-ar:"مكسرات مشكلة",
-tr:"Karışık Kuruyemiş",
-de:"Gemischte Nüsse",
-price:6.49,
-image:"https://images.unsplash.com/photo-1599599810694-b5acb7c0b8d3?auto=format&fit=crop&w=900&q=85"
-},
+cartTitle:
+"Warenkorb",
 
-{
-category:"شاي وقهوة",
-ar:"شاي شرقي",
-tr:"Doğu Çayı",
-de:"Orientalischer Tee",
-price:4.29,
-image:"https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=900&q=85"
-},
+emptyCart:
+"Ihr Warenkorb ist leer",
 
-{
-category:"زيوت",
-ar:"زيت زيتون",
-tr:"Zeytinyağı",
-de:"Olivenöl",
-price:8.99,
-image:"https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=900&q=85"
+home:
+"Startseite",
+
+products:
+"Produkte",
+
+about:
+"Über uns",
+
+contact:
+"Kontakt",
+
+heroTitle:
+"SHAM SUPERMARKET",
+
+heroDescription:
+"Arabische, türkische, orientalische und internationale Produkte in hoher Qualität zu fairen Preisen.",
+
+shopNow:
+"Jetzt einkaufen",
+
+categoryTitle:
+"Hauptkategorien",
+
+categoryDescription:
+"Wählen Sie eine Kategorie. Jede Hauptkategorie enthält zahlreiche Unterprodukte.",
+
+footerName:
+"SHAM SUPERMARKET",
+
+footerText:
+"Neumünster - Deutschland",
+
+add:
+"In den Warenkorb",
+
+remove:
+"Löschen",
+
+categories: [
+"Gemüse",
+"Obst",
+"Fleisch",
+"Hähnchen",
+"Fisch",
+"Milchprodukte",
+"Käse",
+"Brot",
+"Reis",
+"Nudeln",
+"Gewürze",
+"Konserven",
+"Süßigkeiten",
+"Getränke",
+"Kaffee und Tee",
+"Nüsse",
+"Arabische Produkte",
+"Türkische Produkte",
+"Asiatische Produkte",
+"Reinigungsmittel"
+]
+
 }
+
+};
+
+
+/* =========================================
+   CATEGORY IMAGES
+   Change these paths with your real images
+========================================= */
+
+const categoryImages = [
+
+"./assets/categories/vegetables.jpg",
+"./assets/categories/fruits.jpg",
+"./assets/categories/meat.jpg",
+"./assets/categories/chicken.jpg",
+"./assets/categories/fish.jpg",
+"./assets/categories/dairy.jpg",
+"./assets/categories/cheese.jpg",
+"./assets/categories/bread.jpg",
+"./assets/categories/rice.jpg",
+"./assets/categories/pasta.jpg",
+"./assets/categories/spices.jpg",
+"./assets/categories/canned.jpg",
+"./assets/categories/sweets.jpg",
+"./assets/categories/drinks.jpg",
+"./assets/categories/coffee-tea.jpg",
+"./assets/categories/nuts.jpg",
+"./assets/categories/arabic.jpg",
+"./assets/categories/turkish.jpg",
+"./assets/categories/asian.jpg",
+"./assets/categories/cleaning.jpg"
 
 ];
 
 
-/* =========================
-   TRANSLATIONS
-========================= */
-
-const translations = {
-
-ar:{
-topBar:"مرحباً بكم في سوبرماركت شام • Neumünster",
-heroText:"منتجات عربية وتركية وشرقية • جودة • تنوع • أسعار مناسبة",
-shopButton:"تسوّق الآن",
-
-feature1Title:"منتجات متنوعة",
-feature1Text:"منتجات عربية وتركية وشرقية",
-
-feature2Title:"جودة عالية",
-feature2Text:"اختيار مميز للمنتجات اليومية",
-
-feature3Title:"أسعار مناسبة",
-feature3Text:"قيمة ممتازة للعائلة والتسوق اليومي",
-
-feature4Title:"في Neumünster",
-feature4Text:"موقع مناسب وسهل الوصول",
-
-productsTitle:"منتجاتنا",
-productsSubtitle:"مجموعة مختارة من المنتجات اليومية والعربية والتركية والشرقية",
-
-mediaTitle:"صور وفيديو سوبرماركت شام",
-mediaSubtitle:"شاهد الصور والفيديو وتابعنا على Facebook",
-
-videoHelp:"🎥 ضع ملف الفيديو باسم store-video.mp4 بجانب index.html.",
-facebookVideoButton:"شاهد Facebook",
-
-facebookText:"📘 تابع صفحة سوبرماركت شام على Facebook للعروض والصور الجديدة.",
-facebookButton:"صفحة Facebook",
-
-contactTitle:"تواصل معنا",
-contactSubtitle:"سوبرماركت شام – Neumünster",
-
-addressTitle:"العنوان",
-phoneTitle:"الهاتف",
-mapButton:"فتح الخريطة",
-
-monday:"الاثنين",
-tuesday:"الثلاثاء",
-wednesday:"الأربعاء",
-thursday:"الخميس",
-friday:"الجمعة",
-saturday:"السبت",
-sunday:"الأحد",
-closed:"مغلق",
-
-facebookContactText:"تابعنا على Facebook لمعرفة العروض والأخبار والصور الجديدة.",
-
-footerText:"متجرك للمنتجات العربية والتركية والشرقية في Neumünster.",
-quickLinks:"روابط سريعة",
-footerContact:"التواصل",
-
-cartButtonText:"السلة",
-cartTitle:"سلة المشتريات",
-cartEmpty:"السلة فارغة.",
-cartTotal:"المجموع",
-cartNote:"هذه السلة للعرض داخل الموقع ويمكن التواصل معنا عبر Facebook لإتمام الطلب.",
-orderButton:"📘 اطلب أو تواصل معنا عبر Facebook"
-},
-
-tr:{
-topBar:"SHAM SUPERMARKET'e hoş geldiniz • Neumünster",
-heroText:"Arap, Türk ve Doğu ürünleri • Kalite • Çeşitlilik • Uygun fiyat",
-shopButton:"Şimdi Alışveriş Yap",
-
-feature1Title:"Geniş Ürün Çeşidi",
-feature1Text:"Arap, Türk ve Doğu ürünleri",
-
-feature2Title:"Yüksek Kalite",
-feature2Text:"Günlük ürünlerde özenli seçim",
-
-feature3Title:"Uygun Fiyat",
-feature3Text:"Aile ve günlük alışveriş için uygun",
-
-feature4Title:"Neumünster'de",
-feature4Text:"Kolay ulaşılabilir konum",
-
-productsTitle:"Ürünlerimiz",
-productsSubtitle:"Günlük, Arap, Türk ve Doğu ürünlerinden seçmeler",
-
-mediaTitle:"SHAM SUPERMARKET Fotoğraf ve Video",
-mediaSubtitle:"Fotoğraflara ve videoya bakın, Facebook'ta bizi takip edin",
-
-videoHelp:"🎥 Videoyu değiştirmek için store-video.mp4 dosyasını index.html'in yanına koyun.",
-facebookVideoButton:"Facebook'u Gör",
-
-facebookText:"📘 Kampanyalar ve yeni fotoğraflar için Facebook sayfamızı takip edin.",
-facebookButton:"Facebook Sayfası",
-
-contactTitle:"İletişim",
-contactSubtitle:"SHAM SUPERMARKET – Neumünster",
-
-addressTitle:"Adres",
-phoneTitle:"Telefon",
-mapButton:"Haritayı Aç",
-
-monday:"Pazartesi",
-tuesday:"Salı",
-wednesday:"Çarşamba",
-thursday:"Perşembe",
-friday:"Cuma",
-saturday:"Cumartesi",
-sunday:"Pazar",
-closed:"Kapalı",
-
-facebookContactText:"Kampanyalar, haberler ve yeni fotoğraflar için Facebook'ta bizi takip edin.",
-
-footerText:"Neumünster'de Arap, Türk ve Doğu ürünleri için mağazanız.",
-quickLinks:"Hızlı Bağlantılar",
-footerContact:"İletişim",
-
-cartButtonText:"Sepet",
-cartTitle:"Alışveriş Sepeti",
-cartEmpty:"Sepet boş.",
-cartTotal:"Toplam",
-cartNote:"Bu sepet site içinde çalışır. Siparişi tamamlamak için Facebook üzerinden iletişime geçebilirsiniz.",
-orderButton:"📘 Facebook üzerinden sipariş / iletişim"
-},
-
-de:{
-topBar:"Willkommen bei SHAM SUPERMARKET • Neumünster",
-heroText:"Arabische, türkische und orientalische Produkte • Qualität • Vielfalt • Faire Preise",
-shopButton:"Jetzt einkaufen",
-
-feature1Title:"Große Auswahl",
-feature1Text:"Arabische, türkische und orientalische Produkte",
-
-feature2Title:"Hohe Qualität",
-feature2Text:"Sorgfältig ausgewählte Produkte für den Alltag",
-
-feature3Title:"Faire Preise",
-feature3Text:"Ideal für Familien und den täglichen Einkauf",
-
-feature4Title:"In Neumünster",
-feature4Text:"Zentral und einfach erreichbar",
-
-productsTitle:"Unsere Produkte",
-productsSubtitle:"Ausgewählte arabische, türkische, orientalische und tägliche Produkte",
-
-mediaTitle:"Fotos & Video von SHAM SUPERMARKET",
-mediaSubtitle:"Fotos und Video ansehen und uns auf Facebook folgen",
-
-videoHelp:"🎥 Um das Video zu ändern, ersetzen Sie die Datei store-video.mp4 neben index.html.",
-facebookVideoButton:"Facebook ansehen",
-
-facebookText:"📘 Folgen Sie uns auf Facebook für Angebote, Neuigkeiten und neue Fotos.",
-facebookButton:"Facebook-Seite",
-
-contactTitle:"Kontakt",
-contactSubtitle:"SHAM SUPERMARKET – Neumünster",
-
-addressTitle:"Adresse",
-phoneTitle:"Telefon",
-mapButton:"Karte öffnen",
-
-monday:"Montag",
-tuesday:"Dienstag",
-wednesday:"Mittwoch",
-thursday:"Donnerstag",
-friday:"Freitag",
-saturday:"Samstag",
-sunday:"Sonntag",
-closed:"Geschlossen",
-
-facebookContactText:"Folgen Sie uns auf Facebook für Angebote, Neuigkeiten und neue Fotos.",
-
-footerText:"Ihr Markt für arabische, türkische und orientalische Produkte in Neumünster.",
-quickLinks:"Schnelllinks",
-footerContact:"Kontakt",
-
-cartButtonText:"Warenkorb",
-cartTitle:"Warenkorb",
-cartEmpty:"Der Warenkorb ist leer.",
-cartTotal:"Gesamt",
-cartNote:"Dieser Warenkorb funktioniert innerhalb der Website. Für eine Bestellung kontaktieren Sie uns bitte über Facebook.",
-orderButton:"📘 Über Facebook bestellen / Kontakt"
-}
-
-};
-
-
-/* =========================
-   CATEGORY NAMES
-========================= */
-
-const categoryNames = {
-
-ar:{
-"الكل":"الكل",
-"مخبوزات":"مخبوزات",
-"ألبان":"ألبان",
-"زيتون ومخللات":"زيتون ومخللات",
-"بهارات":"بهارات",
-"أرز وحبوب":"أرز وحبوب",
-"مشروبات":"مشروبات",
-"فواكه وخضار":"فواكه وخضار",
-"حلويات":"حلويات",
-"معلبات":"معلبات",
-"مكسرات":"مكسرات",
-"شاي وقهوة":"شاي وقهوة",
-"زيوت":"زيوت"
-},
-
-tr:{
-"الكل":"Tümü",
-"مخبوزات":"Fırın Ürünleri",
-"ألبان":"Süt Ürünleri",
-"زيتون ومخللات":"Zeytin & Turşu",
-"بهارات":"Baharat",
-"أرز وحبوب":"Pirinç & Bakliyat",
-"مشروبات":"İçecekler",
-"فواكه وخضار":"Meyve & Sebze",
-"حلويات":"Tatlılar",
-"معلبات":"Konserve",
-"مكسرات":"Kuruyemiş",
-"شاي وقهوة":"Çay & Kahve",
-"زيوت":"Yağlar"
-},
-
-de:{
-"الكل":"Alle",
-"مخبوزات":"Backwaren",
-"ألبان":"Milchprodukte",
-"زيتون ومخللات":"Oliven & Eingelegtes",
-"بهارات":"Gewürze",
-"أرز وحبوب":"Reis & Hülsenfrüchte",
-"مشروبات":"Getränke",
-"فواكه وخضار":"Obst & Gemüse",
-"حلويات":"Süßigkeiten",
-"معلبات":"Konserven",
-"مكسرات":"Nüsse",
-"شاي وقهوة":"Tee & Kaffee",
-"زيوت":"Öle"
-}
-
-};
-
-
-/* =========================
-   VARIABLES
-========================= */
+/* =========================================
+   CURRENT LANGUAGE
+========================================= */
 
 let currentLanguage = "ar";
 
-let currentCategory = "الكل";
+
+/* =========================================
+   SHOPPING CART
+========================================= */
 
 let cart = [];
 
 
-const productsGrid =
-document.getElementById("productsGrid");
+/* =========================================
+   LOAD CATEGORIES
+========================================= */
 
-const categoriesContainer =
-document.getElementById("categories");
+function loadCategories() {
 
-const cartDrawer =
-document.getElementById("cartDrawer");
+const grid =
+document.getElementById("categoryGrid");
 
-const cartItems =
-document.getElementById("cartItems");
+grid.innerHTML = "";
 
-
-/* =========================
-   CATEGORIES
-========================= */
-
-function getCategories(){
-
-return [
-"الكل",
-...new Set(products.map(product => product.category))
-];
-
-}
+const categories =
+translations[currentLanguage].categories;
 
 
-/* =========================
-   RENDER CATEGORIES
-========================= */
+categories.forEach((category, index) => {
 
-function renderCategories(){
+const card =
+document.createElement("div");
 
-categoriesContainer.innerHTML = "";
+card.className =
+"category-card";
 
-getCategories().forEach(category => {
-
-const button =
-document.createElement("button");
-
-button.className =
-"category " +
-(category === currentCategory ? "active" : "");
-
-button.textContent =
-categoryNames[currentLanguage][category] || category;
-
-button.onclick = () => {
-
-currentCategory = category;
-
-renderCategories();
-renderProducts();
-
+card.onclick =
+function() {
+openCategory(index);
 };
 
-categoriesContainer.appendChild(button);
+
+card.innerHTML = `
+
+<div class="category-image">
+
+<img
+src="${categoryImages[index]}"
+alt="${category}"
+
+onerror="
+this.src='https://placehold.co/600x400?text=SHAM+SUPERMARKET';
+">
+
+</div>
+
+
+<div class="category-info">
+
+<h3>
+${category}
+</h3>
+
+<p>
+10+ ${translations[currentLanguage].products}
+</p>
+
+</div>
+
+`;
+
+grid.appendChild(card);
 
 });
 
 }
 
 
-/* =========================
-   RENDER PRODUCTS
-========================= */
+/* =========================================
+   OPEN MAIN CATEGORY
+   Every main category shows 10 sub-products
+========================================= */
 
-function renderProducts(){
+function openCategory(categoryIndex) {
 
-productsGrid.innerHTML = "";
-
-const filtered =
-currentCategory === "الكل"
-?
-products
-:
-products.filter(
-product => product.category === currentCategory
+const section =
+document.getElementById(
+"subProductsSection"
 );
 
-filtered.forEach(product => {
+const grid =
+document.getElementById(
+"subProductsGrid"
+);
+
+const title =
+document.getElementById(
+"selectedCategoryTitle"
+);
+
+const categoryName =
+translations[currentLanguage]
+.categories[categoryIndex];
+
+
+title.innerText =
+categoryName;
+
+grid.innerHTML = "";
+
+
+/* 10 SUB PRODUCTS */
+
+for (
+let i = 1;
+i <= 10;
+i++
+) {
+
+const productName =
+categoryName + " " + i;
+
 
 const card =
 document.createElement("div");
@@ -1898,481 +1417,416 @@ document.createElement("div");
 card.className =
 "product-card";
 
-const name =
-product[currentLanguage];
-
-const category =
-categoryNames[currentLanguage][product.category];
 
 card.innerHTML = `
 
 <img
-class="product-image"
-src="${product.image}"
-alt="${name}"
-loading="lazy">
 
-<div class="product-body">
+src="./assets/products/category-${categoryIndex + 1}-${i}.jpg"
 
-<div class="product-category">
-${category}
-</div>
+alt="${productName}"
 
-<div class="product-name">
-${name}
-</div>
+onerror="
+this.src='https://placehold.co/500x500?text=${encodeURIComponent(productName)}';
+"
 
-<div class="product-description">
-${getProductDescription()}
-</div>
+>
 
-<div class="product-bottom">
 
-<div class="product-price">
-€${product.price.toFixed(2)}
-</div>
+<div class="product-info">
+
+<h4>
+${productName}
+</h4>
+
+<p>
+SHAM SUPERMARKET
+</p>
 
 <button
-class="add-button">
 
-${getAddText()}
+class="add-btn"
+
+onclick="addToCart('${productName.replace(/'/g, "\\'")}')"
+
+>
+
+${translations[currentLanguage].add}
 
 </button>
 
 </div>
 
+`;
+
+
+grid.appendChild(card);
+
+}
+
+
+section.classList.add(
+"show"
+);
+
+
+setTimeout(
+function() {
+
+section.scrollIntoView({
+behavior: "smooth",
+block: "start"
+});
+
+},
+150
+);
+
+}
+
+
+/* =========================================
+   ADD TO CART
+========================================= */
+
+function addToCart(productName) {
+
+cart.push({
+name: productName
+});
+
+updateCart();
+
+}
+
+
+/* =========================================
+   UPDATE CART
+========================================= */
+
+function updateCart() {
+
+document.getElementById(
+"cartCount"
+).innerText =
+cart.length;
+
+const container =
+document.getElementById(
+"cartItems"
+);
+
+
+if (
+cart.length === 0
+) {
+
+container.innerHTML = `
+
+<div class="empty-cart">
+
+${translations[currentLanguage].emptyCart}
+
 </div>
 
 `;
 
-card
-.querySelector(".add-button")
-.addEventListener(
-"click",
-() => addToCart(product)
-);
-
-productsGrid.appendChild(card);
-
-});
+return;
 
 }
 
 
-/* =========================
-   PRODUCT TEXT
-========================= */
-
-function getAddText(){
-
-if(currentLanguage === "ar")
-return "أضف للسلة";
-
-if(currentLanguage === "tr")
-return "Sepete Ekle";
-
-return "In den Warenkorb";
-
-}
+container.innerHTML =
+"";
 
 
-function getProductDescription(){
+cart.forEach(
+(item, index) => {
 
-if(currentLanguage === "ar")
-return "منتج مميز للاستخدام اليومي.";
-
-if(currentLanguage === "tr")
-return "Günlük kullanım için seçilmiş ürün.";
-
-return "Ausgewähltes Produkt für den täglichen Einkauf.";
-
-}
-
-
-/* =========================
-   CART
-========================= */
-
-function addToCart(product){
-
-cart.push(product);
-
-updateCart();
-
-cartDrawer.classList.add("open");
-
-}
-
-
-function removeFromCart(index){
-
-cart.splice(index,1);
-
-updateCart();
-
-}
-
-
-function updateCart(){
-
-cartItems.innerHTML = "";
-
-if(cart.length === 0){
-
-cartItems.innerHTML = `
-<p style="color:#68758a;padding:15px 0;">
-${translations[currentLanguage].cartEmpty}
-</p>
-`;
-
-}else{
-
-cart.forEach((product,index) => {
-
-const item =
+const div =
 document.createElement("div");
 
-item.className =
+div.className =
 "cart-item";
 
-item.innerHTML = `
 
-<div>
+div.innerHTML = `
 
-<strong>
-${product[currentLanguage]}
-</strong>
-
-<br>
-
-<span style="color:#68758a;">
-€${product.price.toFixed(2)}
+<span>
+${item.name}
 </span>
 
-</div>
+<button
 
-<button>
-✕
+class="remove-btn"
+
+onclick="removeFromCart(${index})"
+
+>
+
+${translations[currentLanguage].remove}
+
 </button>
 
 `;
 
-item
-.querySelector("button")
-.addEventListener(
-"click",
-() => removeFromCart(index)
-);
 
-cartItems.appendChild(item);
+container.appendChild(div);
 
 });
 
 }
 
-const total =
-cart.reduce(
-(sum,product) => sum + product.price,
-0
+
+/* =========================================
+   REMOVE PRODUCT
+========================================= */
+
+function removeFromCart(index) {
+
+cart.splice(
+index,
+1
 );
 
-document.getElementById("cartCount")
-.textContent = cart.length;
-
-document.getElementById("cartTotal")
-.textContent =
-translations[currentLanguage].cartTotal
-+
-": €"
-+
-total.toFixed(2);
+updateCart();
 
 }
 
 
-/* =========================
-   LANGUAGE
-========================= */
+/* =========================================
+   CART OPEN/CLOSE
+========================================= */
 
-function setLanguage(language){
+function openCart() {
 
-currentLanguage = language;
+document.getElementById(
+"cartModal"
+).classList.add(
+"show"
+);
+
+}
+
+
+function closeCart() {
+
+document.getElementById(
+"cartModal"
+).classList.remove(
+"show"
+);
+
+}
+
+
+/* =========================================
+   LANGUAGE CHANGE
+========================================= */
+
+function changeLanguage(language) {
+
+currentLanguage =
+language;
+
 
 const t =
 translations[language];
+
+
+/* HTML LANGUAGE */
 
 document.documentElement.lang =
 language;
 
 document.documentElement.dir =
-language === "ar"
-?
-"rtl"
-:
-"ltr";
+t.dir;
 
 
-document.getElementById("topBar")
-.textContent =
+/* TITLE */
+
+document.title =
+t.pageTitle;
+
+
+/* TOP */
+
+document.getElementById(
+"topBar"
+).innerText =
 t.topBar;
 
-document.getElementById("heroText")
-.textContent =
-t.heroText;
 
-document.getElementById("shopButton")
-.textContent =
-t.shopButton;
+/* CART */
 
-document.getElementById("feature1Title")
-.textContent =
-t.feature1Title;
+document.getElementById(
+"cartText"
+).innerText =
+t.cart;
 
-document.getElementById("feature1Text")
-.textContent =
-t.feature1Text;
 
-document.getElementById("feature2Title")
-.textContent =
-t.feature2Title;
-
-document.getElementById("feature2Text")
-.textContent =
-t.feature2Text;
-
-document.getElementById("feature3Title")
-.textContent =
-t.feature3Title;
-
-document.getElementById("feature3Text")
-.textContent =
-t.feature3Text;
-
-document.getElementById("feature4Title")
-.textContent =
-t.feature4Title;
-
-document.getElementById("feature4Text")
-.textContent =
-t.feature4Text;
-
-document.getElementById("productsTitle")
-.textContent =
-t.productsTitle;
-
-document.getElementById("productsSubtitle")
-.textContent =
-t.productsSubtitle;
-
-document.getElementById("mediaTitle")
-.textContent =
-t.mediaTitle;
-
-document.getElementById("mediaSubtitle")
-.textContent =
-t.mediaSubtitle;
-
-document.getElementById("videoHelp")
-.textContent =
-t.videoHelp;
-
-document.getElementById("facebookVideoButton")
-.textContent =
-t.facebookVideoButton;
-
-document.getElementById("facebookText")
-.textContent =
-t.facebookText;
-
-document.getElementById("facebookButton")
-.textContent =
-t.facebookButton;
-
-document.getElementById("contactTitle")
-.textContent =
-t.contactTitle;
-
-document.getElementById("contactSubtitle")
-.textContent =
-t.contactSubtitle;
-
-document.getElementById("addressTitle")
-.textContent =
-t.addressTitle;
-
-document.getElementById("phoneTitle")
-.textContent =
-t.phoneTitle;
-
-document.getElementById("mapButton")
-.textContent =
-t.mapButton;
-
-document.getElementById("monday")
-.textContent =
-t.monday;
-
-document.getElementById("tuesday")
-.textContent =
-t.tuesday;
-
-document.getElementById("wednesday")
-.textContent =
-t.wednesday;
-
-document.getElementById("thursday")
-.textContent =
-t.thursday;
-
-document.getElementById("friday")
-.textContent =
-t.friday;
-
-document.getElementById("saturday")
-.textContent =
-t.saturday;
-
-document.getElementById("sunday")
-.textContent =
-t.sunday;
-
-document.getElementById("closed")
-.textContent =
-t.closed;
-
-document.getElementById("facebookContactText")
-.textContent =
-t.facebookContactText;
-
-document.getElementById("footerText")
-.textContent =
-t.footerText;
-
-document.getElementById("quickLinks")
-.textContent =
-t.quickLinks;
-
-document.getElementById("footerContact")
-.textContent =
-t.footerContact;
-
-document.getElementById("cartButtonText")
-.textContent =
-t.cartButtonText;
-
-document.getElementById("cartTitle")
-.textContent =
+document.getElementById(
+"cartTitle"
+).innerText =
 t.cartTitle;
-
-document.getElementById("cartNote")
-.textContent =
-t.cartNote;
-
-document.getElementById("orderButton")
-.textContent =
-t.orderButton;
 
 
 /* NAV */
 
+document.getElementById(
+"navHome"
+).innerText =
+t.home;
+
+document.getElementById(
+"navProducts"
+).innerText =
+t.products;
+
+document.getElementById(
+"navAbout"
+).innerText =
+t.about;
+
+document.getElementById(
+"navContact"
+).innerText =
+t.contact;
+
+
+/* HERO */
+
+document.getElementById(
+"heroTitle"
+).innerText =
+t.heroTitle;
+
+document.getElementById(
+"heroDescription"
+).innerText =
+t.heroDescription;
+
+document.getElementById(
+"shopNow"
+).innerText =
+t.shopNow;
+
+
+/* CATEGORY */
+
+document.getElementById(
+"categoryTitle"
+).innerText =
+t.categoryTitle;
+
+document.getElementById(
+"categoryDescription"
+).innerText =
+t.categoryDescription;
+
+
+/* FOOTER */
+
+document.getElementById(
+"footerName"
+).innerText =
+t.footerName;
+
+document.getElementById(
+"footerText"
+).innerText =
+t.footerText;
+
+
+/* ACTIVE BUTTON */
+
 document
-.querySelectorAll(".main-nav a")
-.forEach(link => {
+.querySelectorAll(".lang-btn")
+.forEach(
+button => {
 
-const value =
-link.dataset[language];
-
-if(value)
-link.textContent = value;
-
-});
-
-
-/* LANGUAGE BUTTONS */
-
-document
-.querySelectorAll(".languages button")
-.forEach(button => {
-
-button.classList.toggle(
-"active",
-button.dataset.language === language
+button.classList.remove(
+"active"
 );
 
-});
+}
+);
 
 
-renderCategories();
+document
+.querySelectorAll(".lang-btn")
+.forEach(
+button => {
 
-renderProducts();
+if (
+button.innerText.toLowerCase()
+===
+language
+) {
+
+button.classList.add(
+"active"
+);
+
+}
+
+}
+);
+
+
+/* RELOAD MAIN CATEGORIES */
+
+loadCategories();
+
+
+/* UPDATE CART LANGUAGE */
 
 updateCart();
 
+
+/* CLOSE SUB PRODUCTS */
+
+document.getElementById(
+"subProductsSection"
+).classList.remove(
+"show"
+);
+
 }
 
 
-/* =========================
-   EVENTS
-========================= */
+/* =========================================
+   CLOSE CART WHEN CLICKING OUTSIDE
+========================================= */
 
-document
-.querySelectorAll(".languages button")
-.forEach(button => {
-
-button.addEventListener(
+document.getElementById(
+"cartModal"
+).addEventListener(
 "click",
-() => setLanguage(
-button.dataset.language
-)
-);
+function(e) {
 
-});
+if (
+e.target.id === "cartModal"
+) {
 
+closeCart();
 
-document
-.getElementById("cartButton")
-.addEventListener(
-"click",
-() =>
-cartDrawer.classList.toggle("open")
-);
-
-
-document
-.getElementById("closeCart")
-.addEventListener(
-"click",
-() =>
-cartDrawer.classList.remove("open")
-);
-
-
-/* =========================
-   VIDEO ERROR
-========================= */
-
-document
-.querySelector(".store-video")
-.addEventListener(
-"error",
-() => {
-
-console.log(
-"Video could not be loaded. Make sure store-video.mp4 is next to index.html."
-);
+}
 
 }
 );
 
 
-/* =========================
-   START
-========================= */
+/* =========================================
+   INITIAL LOAD
+========================================= */
 
-setLanguage("ar");
+loadCategories();
+
+updateCart();
+
 
 </script>
 
 </body>
 </html>
-```
