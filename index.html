@@ -1,3 +1,4 @@
+ ```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -19,6 +20,7 @@
     --border:#e5e7eb;
     --danger:#dc3545;
     --success:#16834b;
+    --facebook:#1877f2;
     --shadow:0 12px 35px rgba(15,42,67,.12);
 }
 
@@ -267,13 +269,20 @@ nav{
 }
 
 .main-btn,
-.secondary-btn{
+.secondary-btn,
+.facebook-btn{
     border:none;
     padding:17px 30px;
     border-radius:14px;
     font-size:17px;
     font-weight:bold;
     cursor:pointer;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    transition:.25s;
 }
 
 .main-btn{
@@ -281,9 +290,28 @@ nav{
     color:var(--navy-dark);
 }
 
+.main-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(246,184,0,.35);
+}
+
 .secondary-btn{
     background:#fff;
     color:var(--navy);
+}
+
+.secondary-btn:hover{
+    transform:translateY(-3px);
+}
+
+.facebook-btn{
+    background:var(--facebook);
+    color:#fff;
+}
+
+.facebook-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(24,119,242,.35);
 }
 
 /* =========================
@@ -622,6 +650,50 @@ main{
     text-decoration:none;
 }
 
+.contact-item a:hover{
+    text-decoration:underline;
+}
+
+/* =========================
+   FACEBOOK CONTACT BUTTON
+========================= */
+
+.facebook-contact{
+    background:#eef5ff;
+    border:1px solid #cfe0ff;
+}
+
+.facebook-contact strong{
+    color:var(--facebook);
+}
+
+.facebook-contact a{
+    color:var(--facebook);
+}
+
+.facebook-icon{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    width:32px;
+    height:32px;
+
+    border-radius:50%;
+    background:var(--facebook);
+    color:#fff;
+
+    margin-inline-end:8px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.facebook-contact-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+}
+
 .map-box{
     min-height:420px;
     border-radius:20px;
@@ -681,6 +753,35 @@ footer{
     color:#fff;
     cursor:pointer;
     text-decoration:underline;
+}
+
+/* =========================
+   FOOTER FACEBOOK
+========================= */
+
+.footer-facebook{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+
+    background:var(--facebook);
+    color:#fff;
+
+    text-decoration:none;
+    font-weight:bold;
+
+    padding:12px 22px;
+    border-radius:12px;
+
+    margin-bottom:30px;
+
+    transition:.25s;
+}
+
+.footer-facebook:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(24,119,242,.30);
 }
 
 .copyright{
@@ -848,6 +949,19 @@ footer{
         padding:45px 18px;
     }
 
+    .hero-buttons{
+        flex-direction:column;
+        width:100%;
+        max-width:360px;
+        margin:auto;
+    }
+
+    .main-btn,
+    .secondary-btn,
+    .facebook-btn{
+        width:100%;
+    }
+
 }
 </style>
 </head>
@@ -940,6 +1054,15 @@ id="quickOrder"
 onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">
 طلب سريع
 </button>
+
+<a
+class="facebook-btn"
+id="facebookHeroBtn"
+href="https://www.facebook.com/SamirR555R"
+target="_blank"
+rel="noopener noreferrer">
+📘 تابعنا على Facebook
+</a>
 
 </div>
 
@@ -1214,6 +1337,31 @@ Bahnhofstraße 15, 24534 Neumünster, Deutschland
 
 </div>
 
+<!-- FACEBOOK -->
+
+<div class="contact-item facebook-contact">
+
+<strong id="facebookLabel">
+📘 Facebook
+</strong>
+
+<a
+class="facebook-contact-link"
+href="https://www.facebook.com/SamirR555R"
+target="_blank"
+rel="noopener noreferrer"
+id="facebookLink">
+
+<span class="facebook-icon">f</span>
+
+<span id="facebookLinkText">
+تابعنا على Facebook
+</span>
+
+</a>
+
+</div>
+
 <div class="contact-item">
 
 <strong id="routeLabel">
@@ -1269,6 +1417,19 @@ onerror="this.style.display='none';">
 <p class="footer-address">
 Bahnhofstraße 15, 24534 Neumünster, Deutschland
 </p>
+
+<!-- FACEBOOK FOOTER -->
+
+<a
+class="footer-facebook"
+id="footerFacebook"
+href="https://www.facebook.com/SamirR555R"
+target="_blank"
+rel="noopener noreferrer">
+
+📘 <span id="footerFacebookText">تابعنا على Facebook</span>
+
+</a>
 
 <div class="footer-links">
 
@@ -1375,6 +1536,13 @@ onclick="closeModal('imprintModal')">
 <script>
 
 /* ==========================================
+   FACEBOOK LINK
+========================================== */
+
+const FACEBOOK_URL="https://www.facebook.com/SamirR555R";
+
+
+/* ==========================================
    TRANSLATIONS
 ========================================== */
 
@@ -1413,6 +1581,10 @@ heroDescription:"منتجات عربية وتركية وشرقية وعالمي�
 shopNow:"تسوق الآن",
 
 quickOrder:"طلب سريع",
+
+facebook:"📘 تابعنا على Facebook",
+
+facebookContact:"تابعنا على Facebook",
 
 stripBooking:"⚡ حجز سريع",
 
@@ -1482,6 +1654,8 @@ address:"📍 العنوان",
 
 phone:"📞 الهاتف",
 
+facebookLabel:"📘 Facebook",
+
 route:"🚗 الطريق إلينا",
 
 openMaps:"افتح الطريق في خرائط Google",
@@ -1522,10 +1696,13 @@ categories:[
 privacyText:`
 <h3>سياسة الخصوصية</h3>
 <p>نحترم خصوصية زوار موقع سوبرماركت الشام ونتعامل مع البيانات الشخصية وفق القوانين المعمول بها.</p>
+
 <h3>بيانات التواصل والطلبات</h3>
 <p>عند إرسال طلب أو حجز، قد يتم استخدام الاسم ورقم الهاتف والعنوان فقط من أجل معالجة الطلب والتواصل مع العميل.</p>
+
 <h3>الخدمات الخارجية</h3>
 <p>قد يستخدم الموقع خدمات خارجية مثل خرائط Google، وتخضع هذه الخدمات لسياسات الخصوصية الخاصة بمقدميها.</p>
+
 <h3>حقوقك</h3>
 <p>يمكنك طلب معلومات حول بياناتك الشخصية أو طلب تصحيحها أو حذفها وفقًا للقوانين المعمول بها.</p>
 `,
@@ -1534,10 +1711,16 @@ imprintText:`
 <h3>بيانات النشاط التجاري</h3>
 <p><strong>سوبرماركت الشام</strong></p>
 <p>Bahnhofstraße 15<br>24534 Neumünster<br>Deutschland</p>
+
 <h3>التواصل</h3>
 <p>الهاتف: +49 1573 1938918</p>
+
+<h3>Facebook</h3>
+<p>صفحتنا الرسمية على Facebook متاحة من خلال رابط Facebook الموجود في الموقع.</p>
+
 <h3>الخدمات</h3>
 <p>الحجز السريع والتوصيل داخل مدينة Neumünster. التوصيل إلى المنزل مقابل 40 €.</p>
+
 <h3>ملاحظة</h3>
 <p>يجب استكمال ومراجعة البيانات القانونية والتجارية الرسمية قبل إطلاق الموقع التجاري النهائي.</p>
 `
@@ -1576,6 +1759,10 @@ heroDescription:"Türk, Arap, Doğu ve uluslararası ürünler. Yüksek kalite v
 shopNow:"Şimdi Alışveriş Yap",
 
 quickOrder:"Hızlı Sipariş",
+
+facebook:"📘 Facebook'ta bizi takip edin",
+
+facebookContact:"Facebook'ta bizi takip edin",
 
 stripBooking:"⚡ Hızlı Rezervasyon",
 
@@ -1645,6 +1832,8 @@ address:"📍 Adres",
 
 phone:"📞 Telefon",
 
+facebookLabel:"📘 Facebook",
+
 route:"🚗 Yol Tarifi",
 
 openMaps:"Google Maps'te aç",
@@ -1685,10 +1874,13 @@ categories:[
 privacyText:`
 <h3>Gizlilik Politikası</h3>
 <p>Şam Süpermarket ziyaretçilerinin gizliliğine önem verir ve kişisel verileri yürürlükteki yasalara uygun şekilde işler.</p>
+
 <h3>İletişim ve Sipariş Bilgileri</h3>
 <p>Sipariş veya rezervasyon gönderdiğinizde ad, telefon numarası ve teslimat adresi yalnızca siparişin işlenmesi ve müşteriyle iletişim kurulması amacıyla kullanılabilir.</p>
+
 <h3>Harici Hizmetler</h3>
 <p>Web sitesi Google Maps gibi harici hizmetler kullanabilir. Bu hizmetlerin kendi gizlilik politikaları geçerli olabilir.</p>
+
 <h3>Haklarınız</h3>
 <p>Yasal düzenlemeler çerçevesinde kişisel verileriniz hakkında bilgi talep edebilir, düzeltilmesini veya silinmesini isteyebilirsiniz.</p>
 `,
@@ -1697,10 +1889,16 @@ imprintText:`
 <h3>İşletme Bilgileri</h3>
 <p><strong>ŞAM SÜPERMARKET</strong></p>
 <p>Bahnhofstraße 15<br>24534 Neumünster<br>Deutschland</p>
+
 <h3>İletişim</h3>
 <p>Telefon: +49 1573 1938918</p>
+
+<h3>Facebook</h3>
+<p>Resmi Facebook sayfamıza web sitesindeki Facebook bağlantısından ulaşabilirsiniz.</p>
+
 <h3>Hizmetler</h3>
 <p>Neumünster içinde hızlı rezervasyon ve teslimat hizmeti. Eve teslimat ücreti 40 €.</p>
+
 <h3>Not</h3>
 <p>Resmi yayın öncesinde yasal ve ticari bilgilerin kontrol edilmesi ve gerekli bilgilerin eklenmesi önerilir.</p>
 `
@@ -1739,6 +1937,10 @@ heroDescription:"Arabische, türkische, orientalische und internationale Produkt
 shopNow:"Jetzt einkaufen",
 
 quickOrder:"Schnell bestellen",
+
+facebook:"📘 Folgen Sie uns auf Facebook",
+
+facebookContact:"Folgen Sie uns auf Facebook",
 
 stripBooking:"⚡ Schnelle Reservierung",
 
@@ -1808,6 +2010,8 @@ address:"📍 Adresse",
 
 phone:"📞 Telefon",
 
+facebookLabel:"📘 Facebook",
+
 route:"🚗 Anfahrt",
 
 openMaps:"In Google Maps öffnen",
@@ -1848,10 +2052,13 @@ categories:[
 privacyText:`
 <h3>Datenschutzerklärung</h3>
 <p>Der SHAM SUPERMARKET respektiert die Privatsphäre seiner Besucher und verarbeitet personenbezogene Daten gemäß den geltenden gesetzlichen Bestimmungen.</p>
+
 <h3>Kontakt- und Bestelldaten</h3>
 <p>Wenn Sie eine Bestellung oder Reservierung senden, können Name, Telefonnummer und Lieferadresse ausschließlich zur Bearbeitung der Bestellung und zur Kontaktaufnahme verwendet werden.</p>
+
 <h3>Externe Dienste</h3>
 <p>Diese Website kann externe Dienste wie Google Maps verwenden. Für diese Dienste können die Datenschutzbestimmungen des jeweiligen Anbieters gelten.</p>
+
 <h3>Ihre Rechte</h3>
 <p>Sie können im Rahmen der geltenden gesetzlichen Bestimmungen Auskunft über Ihre personenbezogenen Daten sowie deren Berichtigung oder Löschung verlangen.</p>
 `,
@@ -1860,10 +2067,16 @@ imprintText:`
 <h3>Angaben zum Unternehmen</h3>
 <p><strong>SHAM SUPERMARKET</strong></p>
 <p>Bahnhofstraße 15<br>24534 Neumünster<br>Deutschland</p>
+
 <h3>Kontakt</h3>
 <p>Telefon: +49 1573 1938918</p>
+
+<h3>Facebook</h3>
+<p>Unsere offizielle Facebook-Seite ist über den Facebook-Link auf dieser Website erreichbar.</p>
+
 <h3>Leistungen</h3>
 <p>Schnelle Reservierung und Lieferung innerhalb von Neumünster. Die Lieferung nach Hause kostet 40 €.</p>
+
 <h3>Hinweis</h3>
 <p>Vor der offiziellen geschäftlichen Veröffentlichung sollten alle rechtlichen und geschäftlichen Angaben überprüft und gegebenenfalls ergänzt werden.</p>
 `
@@ -2250,6 +2463,19 @@ document.getElementById("heroDescription").innerText=t.heroDescription;
 document.getElementById("shopNow").innerText=t.shopNow;
 document.getElementById("quickOrder").innerText=t.quickOrder;
 
+/* FACEBOOK - HERO */
+document.getElementById("facebookHeroBtn").innerText=t.facebook;
+document.getElementById("facebookHeroBtn").href=FACEBOOK_URL;
+
+/* FACEBOOK - CONTACT */
+document.getElementById("facebookLabel").innerText=t.facebookLabel;
+document.getElementById("facebookLinkText").innerText=t.facebookContact;
+document.getElementById("facebookLink").href=FACEBOOK_URL;
+
+/* FACEBOOK - FOOTER */
+document.getElementById("footerFacebookText").innerText=t.facebookContact;
+document.getElementById("footerFacebook").href=FACEBOOK_URL;
+
 document.getElementById("stripBooking").innerText=t.stripBooking;
 document.getElementById("stripDelivery").innerText=t.stripDelivery;
 document.getElementById("stripPrice").innerText=t.stripPrice;
@@ -2312,7 +2538,6 @@ document.getElementById("imprintContent").innerHTML=t.imprintText;
 
 document.getElementById("copyright").innerText=t.copyright;
 
-
 document
 .querySelectorAll(".lang-btn")
 .forEach(btn=>{
@@ -2326,7 +2551,6 @@ btn.classList.add("active");
 }
 
 });
-
 
 document
 .getElementById("subProductsSection")
@@ -2349,3 +2573,4 @@ changeLanguage("ar");
 
 </body>
 </html>
+```
