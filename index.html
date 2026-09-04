@@ -2,752 +2,772 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>شام سوبرماركت | SHAM SUPERMARKET</title>
+<title>سوبرماركت الشام | Neumünster</title>
 
 <style>
-
-/* =========================================
-   SHAM SUPERMARKET
-   Complete Single File Design
-========================================= */
-
-:root {
-    --primary: #123047;
-    --primary-dark: #081d2c;
-    --secondary: #f4b400;
-    --secondary-hover: #d99d00;
-    --white: #ffffff;
-    --light: #f4f6f8;
-    --gray: #667085;
-    --border: #e5e7eb;
-    --shadow: 0 10px 35px rgba(0,0,0,.10);
+:root{
+    --navy:#102a43;
+    --navy2:#081b2c;
+    --gold:#f6b800;
+    --gold2:#ffca28;
+    --white:#fff;
+    --bg:#f4f7fa;
+    --text:#1f2937;
+    --muted:#667085;
+    --border:#e5e7eb;
+    --danger:#dc3545;
+    --success:#1f7a4d;
+    --shadow:0 12px 35px rgba(15,42,67,.12);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
-    font-family:
-        Arial,
-        "Segoe UI",
-        Tahoma,
-        sans-serif;
-
-    background: var(--light);
-    color: #1f2937;
-    overflow-x: hidden;
+body{
+    font-family:Arial,"Segoe UI",Tahoma,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
 }
 
-/* =========================================
+/* =========================
    TOP BAR
-========================================= */
+========================= */
 
-.top-bar {
-    background: var(--primary-dark);
-    color: white;
-    text-align: center;
-    padding: 8px 20px;
-    font-size: 14px;
+.top-bar{
+    background:var(--navy2);
+    color:#fff;
+    text-align:center;
+    padding:9px 15px;
+    font-size:14px;
 }
 
-/* =========================================
+/* =========================
    HEADER
-========================================= */
+========================= */
 
-header {
-    background: white;
-    position: sticky;
-    top: 0;
-    z-index: 9999;
-    box-shadow: 0 3px 15px rgba(0,0,0,.08);
+header{
+    background:rgba(255,255,255,.97);
+    position:sticky;
+    top:0;
+    z-index:9999;
+    box-shadow:0 3px 20px rgba(0,0,0,.10);
+    backdrop-filter:blur(12px);
 }
 
-.header-container {
-    max-width: 1450px;
-    margin: auto;
-    min-height: 105px;
+.header-container{
+    max-width:1450px;
+    min-height:108px;
+    margin:auto;
+    padding:10px 30px;
 
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-
-    align-items: center;
-    gap: 20px;
-    padding: 10px 30px;
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    gap:20px;
 }
 
-/* =========================================
-   LANGUAGE
-========================================= */
-
-.languages {
-    display: flex;
-    gap: 8px;
-    align-items: center;
+.languages{
+    display:flex;
+    gap:8px;
+    align-items:center;
 }
 
-.lang-btn {
-    border: 1px solid var(--border);
-    background: #f8fafc;
-    color: var(--primary);
-    padding: 10px 13px;
-    border-radius: 9px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: .25s;
+.lang-btn{
+    border:1px solid var(--border);
+    background:#f8fafc;
+    color:var(--navy);
+    padding:10px 14px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:800;
+    transition:.25s;
 }
 
 .lang-btn:hover,
-.lang-btn.active {
-    background: var(--primary);
-    color: white;
+.lang-btn.active{
+    background:var(--navy);
+    color:#fff;
+    transform:translateY(-1px);
 }
 
-/* =========================================
-   CENTER LOGO
-========================================= */
+/* =========================
+   OFFICIAL LOGO CENTER
+========================= */
 
-.logo-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.logo-center{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-width:150px;
 }
 
-.logo-center img {
-    width: 88px;
-    height: 88px;
-    object-fit: contain;
-    display: block;
+.logo-center img{
+    width:88px;
+    height:88px;
+    object-fit:contain;
+    display:block;
 }
 
-/* fallback if logo missing */
-
-.logo-fallback {
-    display: none;
-    width: 88px;
-    height: 88px;
-    border-radius: 50%;
-    background: var(--secondary);
-    color: var(--primary);
-    font-size: 40px;
-    font-weight: bold;
-    align-items: center;
-    justify-content: center;
+.logo-fallback{
+    display:none;
+    width:82px;
+    height:82px;
+    border-radius:50%;
+    background:var(--gold);
+    color:var(--navy);
+    font-size:38px;
+    font-weight:bold;
+    align-items:center;
+    justify-content:center;
+    box-shadow:var(--shadow);
 }
 
-/* =========================================
+/* =========================
    CART
-========================================= */
+========================= */
 
-.header-actions {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 12px;
+.header-actions{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
 }
 
-.cart-button {
-    background: var(--secondary);
-    color: var(--primary-dark);
+.cart-button{
+    border:none;
+    background:var(--gold);
+    color:var(--navy2);
+    padding:14px 20px;
+    border-radius:14px;
+    font-weight:800;
+    font-size:16px;
+    cursor:pointer;
 
-    border: none;
-    border-radius: 14px;
+    display:flex;
+    align-items:center;
+    gap:10px;
 
-    padding: 14px 20px;
-
-    font-size: 16px;
-    font-weight: bold;
-
-    cursor: pointer;
-
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    box-shadow: 0 8px 20px rgba(244,180,0,.25);
-
-    transition: .25s;
+    box-shadow:0 8px 25px rgba(246,184,0,.30);
+    transition:.25s;
 }
 
-.cart-button:hover {
-    transform: translateY(-2px);
-    background: var(--secondary-hover);
+.cart-button:hover{
+    transform:translateY(-3px);
+    background:var(--gold2);
 }
 
-.cart-count {
-    background: var(--primary);
-    color: white;
+.cart-count{
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    background:var(--navy);
+    color:#fff;
 
-    min-width: 26px;
-    height: 26px;
-
-    border-radius: 50%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 13px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:13px;
 }
 
-/* =========================================
+/* =========================
    NAVIGATION
-========================================= */
+========================= */
 
-nav {
-    background: white;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+nav{
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+    background:#fff;
 }
 
-.nav-container {
-    max-width: 1450px;
-    margin: auto;
+.nav-container{
+    max-width:1450px;
+    margin:auto;
+    padding:15px 20px;
 
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-
-    padding: 16px 20px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:30px;
 }
 
-.nav-container a {
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: bold;
-    transition: .2s;
+.nav-container a{
+    text-decoration:none;
+    color:var(--navy);
+    font-weight:800;
+    transition:.2s;
 }
 
-.nav-container a:hover {
-    color: var(--secondary);
+.nav-container a:hover{
+    color:var(--gold);
 }
 
-/* =========================================
+/* =========================
    HERO
-========================================= */
+========================= */
 
-.hero {
-    min-height: 560px;
+.hero{
+    min-height:620px;
+    position:relative;
 
-    position: relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align:center;
+    padding:90px 20px;
 
-    text-align: center;
-
-    background:
+    background-image:
         linear-gradient(
-            rgba(7,24,37,.65),
-            rgba(7,24,37,.78)
+            rgba(5,22,34,.48),
+            rgba(5,22,34,.75)
         ),
-        url("./assets/hero.jpg");
+        url("https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=2200&q=85");
 
-    background-size: cover;
-    background-position: center;
-
-    padding: 80px 20px;
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
 }
 
-.hero-content {
-    max-width: 950px;
-    color: white;
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        120deg,
+        rgba(16,42,67,.20),
+        rgba(246,184,0,.05)
+    );
 }
 
-.hero-subtitle {
-    color: #f7d36a;
-    letter-spacing: 4px;
-    font-size: 16px;
-    margin-bottom: 20px;
-    font-weight: bold;
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:1000px;
+    color:#fff;
 }
 
-.hero h1 {
-    font-size: clamp(42px, 7vw, 85px);
-    margin-bottom: 20px;
-    line-height: 1.1;
+.hero-subtitle{
+    color:#ffe082;
+    font-size:16px;
+    letter-spacing:4px;
+    font-weight:bold;
+    margin-bottom:22px;
 }
 
-.hero p {
-    font-size: clamp(18px, 2vw, 25px);
-    margin-bottom: 35px;
+.hero h1{
+    font-size:clamp(44px,8vw,90px);
+    line-height:1.05;
+    text-shadow:0 8px 25px rgba(0,0,0,.35);
+    margin-bottom:22px;
 }
 
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
+.hero p{
+    max-width:800px;
+    margin:0 auto 35px;
+    font-size:clamp(18px,2.3vw,27px);
+    line-height:1.7;
+    text-shadow:0 3px 15px rgba(0,0,0,.45);
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
 }
 
 .main-btn,
-.facebook-btn {
-    border: none;
-    padding: 17px 30px;
-
-    border-radius: 13px;
-
-    font-size: 17px;
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: .25s;
+.map-btn{
+    border:none;
+    padding:17px 30px;
+    border-radius:14px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.25s;
 }
 
-.main-btn {
-    background: var(--secondary);
-    color: var(--primary-dark);
+.main-btn{
+    background:var(--gold);
+    color:var(--navy2);
 }
 
-.facebook-btn {
-    background: #1877f2;
-    color: white;
+.map-btn{
+    background:rgba(255,255,255,.92);
+    color:var(--navy);
 }
 
 .main-btn:hover,
-.facebook-btn:hover {
-    transform: translateY(-3px);
+.map-btn:hover{
+    transform:translateY(-3px);
 }
 
-/* =========================================
-   MAIN CONTENT
-========================================= */
+/* =========================
+   MAIN
+========================= */
 
-main {
-    max-width: 1450px;
-    margin: auto;
-    padding: 80px 25px;
+main{
+    max-width:1450px;
+    margin:auto;
+    padding:80px 25px;
 }
 
-.section-title {
-    text-align: center;
-    margin-bottom: 18px;
-
-    color: var(--primary);
-    font-size: clamp(30px, 4vw, 48px);
+.section-title{
+    text-align:center;
+    color:var(--navy);
+    font-size:clamp(30px,4vw,48px);
+    margin-bottom:15px;
 }
 
-.section-description {
-    text-align: center;
-    max-width: 850px;
-    margin: 0 auto 50px;
-
-    color: var(--gray);
-    line-height: 1.8;
-    font-size: 17px;
+.section-description{
+    text-align:center;
+    color:var(--muted);
+    max-width:850px;
+    margin:0 auto 50px;
+    font-size:17px;
+    line-height:1.8;
 }
 
-/* =========================================
+/* =========================
    CATEGORY GRID
-   20 MAIN PRODUCTS
-========================================= */
+========================= */
 
-.category-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(210px, 1fr));
-
-    gap: 25px;
+.category-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:24px;
 }
 
-.category-card {
-    background: white;
-
-    border-radius: 20px;
-
-    overflow: hidden;
-
-    box-shadow: var(--shadow);
-
-    cursor: pointer;
-
-    transition: .3s;
-
-    position: relative;
+.category-card{
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    cursor:pointer;
+    transition:.3s;
 }
 
-.category-card:hover {
-    transform: translateY(-8px);
+.category-card:hover{
+    transform:translateY(-8px);
 }
 
-.category-image {
-    height: 210px;
-    overflow: hidden;
-    position: relative;
+.category-image{
+    height:205px;
+    overflow:hidden;
 }
 
-.category-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: .4s;
+.category-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.45s;
 }
 
-.category-card:hover img {
-    transform: scale(1.08);
+.category-card:hover img{
+    transform:scale(1.08);
 }
 
-.category-info {
-    padding: 20px;
-    text-align: center;
+.category-info{
+    padding:18px;
+    text-align:center;
 }
 
-.category-info h3 {
-    color: var(--primary);
-    font-size: 20px;
-    margin-bottom: 8px;
+.category-info h3{
+    color:var(--navy);
+    font-size:19px;
+    margin-bottom:7px;
 }
 
-.category-info p {
-    color: var(--gray);
-    font-size: 14px;
+.category-info p{
+    color:var(--muted);
+    font-size:14px;
 }
 
-/* =========================================
-   SUB PRODUCTS SECTION
-========================================= */
+/* =========================
+   SUB PRODUCTS
+========================= */
 
-.sub-products-section {
-    margin-top: 80px;
-    display: none;
+.sub-products-section{
+    margin-top:90px;
+    display:none;
 }
 
-.sub-products-section.show {
-    display: block;
-    animation: fadeIn .4s ease;
+.sub-products-section.show{
+    display:block;
+    animation:fadeIn .45s ease;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(25px);
     }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
 }
 
-.selected-category {
-    text-align: center;
-    margin-bottom: 40px;
-
-    color: var(--primary);
-    font-size: 35px;
+.selected-category{
+    text-align:center;
+    color:var(--navy);
+    font-size:clamp(30px,4vw,45px);
+    margin-bottom:40px;
 }
 
-.sub-products-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(180px, 1fr));
-
-    gap: 22px;
+.sub-products-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:22px;
 }
 
-.product-card {
-    background: white;
-
-    border-radius: 18px;
-
-    overflow: hidden;
-
-    box-shadow: 0 8px 25px rgba(0,0,0,.08);
-
-    transition: .25s;
+.product-card{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    transition:.25s;
 }
 
-.product-card:hover {
-    transform: translateY(-6px);
+.product-card:hover{
+    transform:translateY(-6px);
 }
 
-.product-card img {
-    width: 100%;
-    height: 190px;
-    object-fit: cover;
+.product-card img{
+    width:100%;
+    height:185px;
+    object-fit:cover;
 }
 
-.product-info {
-    padding: 15px;
-    text-align: center;
+.product-info{
+    padding:15px;
+    text-align:center;
 }
 
-.product-info h4 {
-    color: var(--primary);
-    margin-bottom: 10px;
+.product-info h4{
+    color:var(--navy);
+    margin-bottom:9px;
+    min-height:42px;
 }
 
-.product-info p {
-    color: var(--gray);
-    font-size: 14px;
-    margin-bottom: 15px;
+.product-info p{
+    color:var(--muted);
+    font-size:13px;
+    margin-bottom:14px;
 }
 
-.add-btn {
-    width: 100%;
-
-    border: none;
-
-    background: var(--primary);
-    color: white;
-
-    padding: 12px;
-
-    border-radius: 10px;
-
-    cursor: pointer;
-
-    font-weight: bold;
-
-    transition: .2s;
+.add-btn{
+    width:100%;
+    border:none;
+    background:var(--navy);
+    color:#fff;
+    padding:12px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.2s;
 }
 
-.add-btn:hover {
-    background: var(--secondary);
-    color: var(--primary-dark);
+.add-btn:hover{
+    background:var(--gold);
+    color:var(--navy2);
 }
 
-/* =========================================
-   CART MODAL
-========================================= */
+/* =========================
+   CONTACT
+========================= */
 
-.cart-modal {
-    position: fixed;
-
-    inset: 0;
-
-    background: rgba(0,0,0,.55);
-
-    z-index: 10000;
-
-    display: none;
-
-    align-items: center;
-    justify-content: center;
-
-    padding: 20px;
+.contact-section{
+    background:#fff;
+    margin-top:80px;
+    padding:70px 30px;
+    border-radius:25px;
+    box-shadow:var(--shadow);
 }
 
-.cart-modal.show {
-    display: flex;
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:35px;
+    align-items:stretch;
 }
 
-.cart-box {
-    background: white;
-
-    width: 100%;
-    max-width: 600px;
-
-    max-height: 80vh;
-
-    overflow-y: auto;
-
-    border-radius: 22px;
-
-    padding: 30px;
-
-    position: relative;
+.contact-info{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:18px;
 }
 
-.close-cart {
-    position: absolute;
-
-    top: 15px;
-    left: 15px;
-
-    border: none;
-
-    width: 40px;
-    height: 40px;
-
-    border-radius: 50%;
-
-    cursor: pointer;
-
-    background: #eee;
-
-    font-size: 20px;
+.contact-item{
+    background:#f7f9fb;
+    padding:18px;
+    border-radius:14px;
+    border:1px solid var(--border);
 }
 
-.cart-box h2 {
-    color: var(--primary);
-    margin-bottom: 25px;
+.contact-item strong{
+    display:block;
+    color:var(--navy);
+    margin-bottom:7px;
 }
 
-.cart-item {
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    border-bottom: 1px solid var(--border);
-
-    padding: 15px 0;
+.contact-item a{
+    color:var(--navy);
+    text-decoration:none;
+    font-weight:bold;
 }
 
-.remove-btn {
-    border: none;
-
-    background: #dc3545;
-    color: white;
-
-    padding: 7px 12px;
-
-    border-radius: 8px;
-
-    cursor: pointer;
+.map-box{
+    min-height:420px;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,.10);
 }
 
-.empty-cart {
-    text-align: center;
-    color: var(--gray);
-    padding: 40px 0;
+.map-box iframe{
+    width:100%;
+    height:100%;
+    min-height:420px;
+    border:0;
 }
 
-/* =========================================
+/* =========================
    FOOTER
-========================================= */
+========================= */
 
-footer {
-    background: var(--primary-dark);
-    color: white;
-
-    padding: 50px 20px;
-
-    text-align: center;
+footer{
+    background:var(--navy2);
+    color:#fff;
+    margin-top:80px;
+    padding:55px 20px 25px;
 }
 
-footer h2 {
-    margin-bottom: 15px;
+.footer-container{
+    max-width:1200px;
+    margin:auto;
+    text-align:center;
 }
 
-footer p {
-    color: #cbd5e1;
+.footer-logo{
+    margin-bottom:20px;
 }
 
-/* =========================================
-   RESPONSIVE
-========================================= */
+.footer-logo img{
+    width:80px;
+    height:80px;
+    object-fit:contain;
+}
 
-@media (max-width: 800px) {
+.footer-name{
+    font-size:26px;
+    margin-bottom:10px;
+}
 
-    .header-container {
-        grid-template-columns: 1fr;
-        justify-items: center;
-        padding: 15px;
+.footer-address{
+    color:#cbd5e1;
+    margin-bottom:25px;
+}
+
+.footer-links{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:25px;
+    margin-bottom:30px;
+}
+
+.footer-links button{
+    border:none;
+    background:transparent;
+    color:#fff;
+    cursor:pointer;
+    font-size:15px;
+    text-decoration:underline;
+}
+
+.copyright{
+    padding-top:25px;
+    border-top:1px solid rgba(255,255,255,.15);
+    color:#cbd5e1;
+    font-size:14px;
+}
+
+/* =========================
+   MODALS
+========================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.60);
+    z-index:20000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:100%;
+    max-width:850px;
+    max-height:85vh;
+    overflow-y:auto;
+    background:#fff;
+    border-radius:22px;
+    padding:35px;
+    position:relative;
+}
+
+.modal-box h2{
+    color:var(--navy);
+    margin-bottom:20px;
+}
+
+.modal-box h3{
+    color:var(--navy);
+    margin:20px 0 8px;
+}
+
+.modal-box p{
+    color:#4b5563;
+    line-height:1.8;
+    margin-bottom:12px;
+}
+
+.close-modal{
+    position:absolute;
+    top:14px;
+    inset-inline-start:14px;
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:50%;
+    background:#eee;
+    cursor:pointer;
+    font-size:22px;
+}
+
+/* =========================
+   CART
+========================= */
+
+.cart-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    padding:15px 0;
+    border-bottom:1px solid var(--border);
+}
+
+.remove-btn{
+    border:none;
+    background:var(--danger);
+    color:#fff;
+    padding:8px 12px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.empty-cart{
+    text-align:center;
+    color:var(--muted);
+    padding:50px 0;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:850px){
+
+    .header-container{
+        grid-template-columns:1fr;
+        justify-items:center;
+        padding:15px;
+    }
+
+    .logo-center{
+        order:-1;
     }
 
     .languages,
-    .header-actions {
-        justify-content: center;
+    .header-actions{
+        justify-content:center;
     }
 
-    .logo-center {
-        order: -1;
+    .nav-container{
+        gap:14px;
+        font-size:14px;
     }
 
-    .nav-container {
-        gap: 15px;
-        font-size: 14px;
+    .hero{
+        min-height:520px;
+        background-attachment:scroll;
     }
 
-    .hero {
-        min-height: 480px;
+    .category-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .category-grid {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
+    .sub-products-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .sub-products-grid {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-    }
-
-    .category-image {
-        height: 150px;
+    .contact-grid{
+        grid-template-columns:1fr;
     }
 
 }
 
-@media (max-width: 450px) {
+@media(max-width:500px){
 
     .category-grid,
-    .sub-products-grid {
-        grid-template-columns: 1fr;
+    .sub-products-grid{
+        grid-template-columns:1fr;
+    }
+
+    main{
+        padding:55px 15px;
+    }
+
+    .contact-section{
+        padding:45px 18px;
     }
 
 }
-
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =========================================
-     TOP BAR
-========================================= -->
-
 <div class="top-bar" id="topBar">
-    مرحباً بكم في سوبرماركت الشام
+مرحباً بكم في سوبرماركت الشام
 </div>
-
-
-<!-- =========================================
-     HEADER
-========================================= -->
 
 <header>
 
 <div class="header-container">
 
-
-<!-- LANGUAGES -->
-
 <div class="languages">
-
-<button
-class="lang-btn active"
-onclick="changeLanguage('ar')">
-AR
-</button>
-
-<button
-class="lang-btn"
-onclick="changeLanguage('tr')">
-TR
-</button>
-
-<button
-class="lang-btn"
-onclick="changeLanguage('de')">
-DE
-</button>
-
+<button class="lang-btn active" onclick="changeLanguage('ar')">AR</button>
+<button class="lang-btn" onclick="changeLanguage('tr')">TR</button>
+<button class="lang-btn" onclick="changeLanguage('de')">DE</button>
 </div>
-
-
-<!-- OFFICIAL LOGO CENTER -->
 
 <div class="logo-center">
 
@@ -755,68 +775,34 @@ DE
 src="./assets/logo.png"
 alt="شام سوبرماركت"
 id="officialLogo"
+onerror="this.style.display='none';document.getElementById('logoFallback').style.display='flex';">
 
-onerror="
-this.style.display='none';
-document.getElementById('logoFallback').style.display='flex';
-">
-
-<div
-class="logo-fallback"
-id="logoFallback">
-ش
-</div>
+<div class="logo-fallback" id="logoFallback">ش</div>
 
 </div>
-
-
-<!-- CART -->
 
 <div class="header-actions">
 
-<button
-class="cart-button"
-onclick="openCart()">
+<button class="cart-button" onclick="openModal('cartModal')">
 
-<span id="cartText">
-🛒 السلة
-</span>
+<span id="cartText">🛒 السلة</span>
 
-<span
-class="cart-count"
-id="cartCount">
-0
-</span>
+<span class="cart-count" id="cartCount">0</span>
 
 </button>
 
 </div>
 
-
 </div>
-
-
-<!-- NAV -->
 
 <nav>
 
 <div class="nav-container">
 
-<a href="#home" id="navHome">
-الرئيسية
-</a>
-
-<a href="#categories" id="navProducts">
-المنتجات
-</a>
-
-<a href="#about" id="navAbout">
-من نحن
-</a>
-
-<a href="#contact" id="navContact">
-التواصل
-</a>
+<a href="#home" id="navHome">الرئيسية</a>
+<a href="#categories" id="navProducts">المنتجات</a>
+<a href="#contact" id="navContact">التواصل</a>
+<a href="#location" id="navLocation">الوصول إلينا</a>
 
 </div>
 
@@ -824,22 +810,12 @@ id="cartCount">
 
 </header>
 
-
-
-<!-- =========================================
-     HERO
-========================================= -->
-
-<section
-class="hero"
-id="home">
+<section class="hero" id="home">
 
 <div class="hero-content">
 
-<div
-class="hero-subtitle"
-id="heroLocation">
-NEUMÜNSTER • DEUTSCHLAND
+<div class="hero-subtitle">
+NEUMÜNSTER · DEUTSCHLAND
 </div>
 
 <h1 id="heroTitle">
@@ -847,218 +823,250 @@ NEUMÜNSTER • DEUTSCHLAND
 </h1>
 
 <p id="heroDescription">
-منتجات عربية وتركية وشرقية وغربية
-بجودة عالية وأسعار مناسبة
+منتجات عربية وتركية وشرقية وعالمية بجودة عالية وأسعار مناسبة
 </p>
 
 <div class="hero-buttons">
 
 <button
-class="facebook-btn"
-onclick="window.open('https://facebook.com','_blank')">
-Facebook
-</button>
-
-<button
 class="main-btn"
-onclick="document.getElementById('categories').scrollIntoView()"
-id="shopNow">
+id="shopNow"
+onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'})">
 تسوق الآن
 </button>
 
+<button
+class="map-btn"
+id="findUs"
+onclick="document.getElementById('location').scrollIntoView({behavior:'smooth'})">
+📍 الطريق إلينا
+</button>
+
 </div>
 
 </div>
 
 </section>
-
-
-
-<!-- =========================================
-     MAIN PRODUCTS
-========================================= -->
 
 <main>
 
-
 <section id="categories">
 
-<h2
-class="section-title"
-id="categoryTitle">
+<h2 class="section-title" id="categoryTitle">
 الأقسام الرئيسية
 </h2>
 
-<p
-class="section-description"
-id="categoryDescription">
-
-اختر القسم الذي تبحث عنه.
-كل قسم رئيسي يحتوي على منتجات وأنواع فرعية متعددة.
-
+<p class="section-description" id="categoryDescription">
+اختر القسم الرئيسي، ثم ستظهر لك 12 صورة ومنتجًا فرعيًا متعلقًا بهذا القسم.
 </p>
 
-
-<!-- 20 MAIN CATEGORIES -->
-
-<div
-class="category-grid"
-id="categoryGrid">
-
-</div>
+<div class="category-grid" id="categoryGrid"></div>
 
 </section>
 
+<section class="sub-products-section" id="subProductsSection">
 
+<h2 class="selected-category" id="selectedCategoryTitle"></h2>
 
-<!-- =========================================
-     SUB PRODUCTS
-========================================= -->
+<div class="sub-products-grid" id="subProductsGrid"></div>
 
-<section
-class="sub-products-section"
-id="subProductsSection">
+</section>
 
-<h2
-class="selected-category"
-id="selectedCategoryTitle">
+<section class="contact-section" id="contact">
+
+<h2 class="section-title" id="contactTitle">
+تواصل معنا
 </h2>
 
-<div
-class="sub-products-grid"
-id="subProductsGrid">
+<p class="section-description" id="contactDescription">
+يمكنك زيارة سوبرماركت الشام أو الاتصال بنا مباشرة.
+</p>
+
+<div class="contact-grid">
+
+<div class="contact-info">
+
+<div class="contact-item">
+
+<strong id="addressLabel">📍 العنوان</strong>
+
+<span>
+Bahnhofstraße 15, 24534 Neumünster, Deutschland
+</span>
+
+</div>
+
+<div class="contact-item">
+
+<strong id="phoneLabel">📞 الهاتف</strong>
+
+<a href="tel:+4915731938918">
++49 1573 1938918
+</a>
+
+</div>
+
+<div class="contact-item">
+
+<strong id="routeLabel">🚗 الطريق إلينا</strong>
+
+<a
+href="https://www.google.com/maps/search/?api=1&query=Bahnhofstra%C3%9Fe+15,+24534+Neum%C3%BCnster"
+target="_blank"
+id="openMapsText">
+افتح الطريق في خرائط Google
+</a>
+
+</div>
+
+</div>
+
+<div class="map-box" id="location">
+
+<iframe
+src="https://www.google.com/maps?q=Bahnhofstraße%2015,%2024534%20Neumünster&output=embed"
+loading="lazy"
+allowfullscreen>
+</iframe>
+
+</div>
 
 </div>
 
 </section>
-
 
 </main>
 
+<footer>
 
+<div class="footer-container">
 
-<!-- =========================================
-     FOOTER
-========================================= -->
+<div class="footer-logo">
 
-<footer
-id="contact">
+<img
+src="./assets/logo.png"
+alt="Sham Supermarket"
+onerror="this.style.display='none';">
 
-<h2 id="footerName">
+</div>
+
+<h2 class="footer-name" id="footerName">
 سوبرماركت الشام
 </h2>
 
-<p id="footerText">
-نويمنستر - ألمانيا
+<p class="footer-address">
+Bahnhofstraße 15, 24534 Neumünster, Deutschland
 </p>
+
+<div class="footer-links">
+
+<button onclick="openModal('privacyModal')" id="privacyBtn">
+سياسة الخصوصية
+</button>
+
+<button onclick="openModal('imprintModal')" id="imprintBtn">
+البصمة القانونية
+</button>
+
+</div>
+
+<div class="copyright" id="copyright">
+© 2026 جميع حقوق الطبع والنشر محفوظة لسوبرماركت الشام.
+</div>
+
+</div>
 
 </footer>
 
+<!-- CART -->
 
+<div class="modal" id="cartModal">
 
-<!-- =========================================
-     CART MODAL
-========================================= -->
+<div class="modal-box">
 
-<div
-class="cart-modal"
-id="cartModal">
+<button class="close-modal" onclick="closeModal('cartModal')">×</button>
 
-<div class="cart-box">
-
-<button
-class="close-cart"
-onclick="closeCart()">
-×
-</button>
-
-<h2 id="cartTitle">
-سلة التسوق
-</h2>
+<h2 id="cartTitle">سلة التسوق</h2>
 
 <div id="cartItems">
-
-<div
-class="empty-cart"
-id="emptyCart">
-السلة فارغة
+<div class="empty-cart" id="emptyCart">السلة فارغة</div>
 </div>
 
 </div>
 
 </div>
 
+<!-- PRIVACY -->
+
+<div class="modal" id="privacyModal">
+
+<div class="modal-box">
+
+<button class="close-modal" onclick="closeModal('privacyModal')">×</button>
+
+<h2 id="privacyTitle">سياسة الخصوصية</h2>
+
+<div id="privacyContent"></div>
+
 </div>
 
+</div>
 
+<!-- IMPRINT -->
+
+<div class="modal" id="imprintModal">
+
+<div class="modal-box">
+
+<button class="close-modal" onclick="closeModal('imprintModal')">×</button>
+
+<h2 id="imprintTitle">البصمة القانونية</h2>
+
+<div id="imprintContent"></div>
+
+</div>
+
+</div>
 
 <script>
 
-/* =========================================
+/* ==========================================
    TRANSLATIONS
-========================================= */
+========================================== */
 
 const translations = {
 
-ar: {
+ar:{
+dir:"rtl",
+pageTitle:"سوبرماركت الشام | Neumünster",
+topBar:"مرحباً بكم في سوبرماركت الشام",
+name:"سوبرماركت الشام",
+cart:"🛒 السلة",
+cartTitle:"سلة التسوق",
+emptyCart:"السلة فارغة",
+home:"الرئيسية",
+products:"المنتجات",
+contact:"التواصل",
+location:"الوصول إلينا",
+heroTitle:"سوبرماركت الشام",
+heroDescription:"منتجات عربية وتركية وشرقية وعالمية بجودة عالية وأسعار مناسبة",
+shopNow:"تسوق الآن",
+findUs:"📍 الطريق إلينا",
+categoryTitle:"الأقسام الرئيسية",
+categoryDescription:"اختر القسم الرئيسي، ثم ستظهر لك 12 صورة ومنتجًا فرعيًا متعلقًا بهذا القسم.",
+contactTitle:"تواصل معنا",
+contactDescription:"يمكنك زيارة سوبرماركت الشام أو الاتصال بنا مباشرة.",
+address:"📍 العنوان",
+phone:"📞 الهاتف",
+route:"🚗 الطريق إلينا",
+openMaps:"افتح الطريق في خرائط Google",
+add:"أضف إلى السلة",
+remove:"حذف",
+privacy:"سياسة الخصوصية",
+imprint:"البصمة القانونية",
+copyright:"© 2026 جميع حقوق الطبع والنشر محفوظة لسوبرماركت الشام.",
 
-dir: "rtl",
-
-pageTitle:
-"شام سوبرماركت | سوبرماركت الشام",
-
-topBar:
-"مرحباً بكم في سوبرماركت الشام",
-
-cart:
-"🛒 السلة",
-
-cartTitle:
-"سلة التسوق",
-
-emptyCart:
-"السلة فارغة",
-
-home:
-"الرئيسية",
-
-products:
-"المنتجات",
-
-about:
-"من نحن",
-
-contact:
-"التواصل",
-
-heroTitle:
-"سوبرماركت الشام",
-
-heroDescription:
-"منتجات عربية وتركية وشرقية وغربية بجودة عالية وأسعار مناسبة",
-
-shopNow:
-"تسوق الآن",
-
-categoryTitle:
-"الأقسام الرئيسية",
-
-categoryDescription:
-"اختر القسم الذي تبحث عنه. كل قسم رئيسي يحتوي على منتجات وأنواع فرعية متعددة.",
-
-footerName:
-"سوبرماركت الشام",
-
-footerText:
-"نويمنستر - ألمانيا",
-
-add:
-"أضف إلى السلة",
-
-remove:
-"حذف",
-
-categories: [
+categories:[
 "الخضروات",
 "الفواكه",
 "اللحوم",
@@ -1067,7 +1075,7 @@ categories: [
 "الألبان",
 "الأجبان",
 "الخبز",
-"الأرز",
+"الأرز والحبوب",
 "المعكرونة",
 "التوابل",
 "المعلبات",
@@ -1079,80 +1087,70 @@ categories: [
 "المنتجات التركية",
 "المنتجات الآسيوية",
 "المنظفات"
-]
+],
 
+privacyText:`
+<h3>معلومات عامة</h3>
+<p>نحن نحترم خصوصية زوار موقع سوبرماركت الشام ونتعامل مع البيانات الشخصية وفق القوانين المعمول بها.</p>
+<h3>بيانات التواصل</h3>
+<p>إذا تواصلت معنا عبر الهاتف أو أي وسيلة اتصال، فقد نستخدم البيانات التي تقدمها فقط لمعالجة طلبك والتواصل معك.</p>
+<h3>الخدمات الخارجية</h3>
+<p>قد يحتوي الموقع على خدمات خارجية مثل خرائط Google. عند استخدام هذه الخدمات قد يتم تطبيق سياسة الخصوصية الخاصة بمقدم الخدمة.</p>
+<h3>حقوقك</h3>
+<p>يمكنك طلب معلومات حول بياناتك الشخصية أو طلب تصحيحها أو حذفها وفق القوانين السارية.</p>
+`,
+
+imprintText:`
+<h3>بيانات الموقع</h3>
+<p><strong>سوبرماركت الشام</strong></p>
+<p>Bahnhofstraße 15<br>24534 Neumünster<br>Deutschland</p>
+<h3>التواصل</h3>
+<p>الهاتف: +49 1573 1938918</p>
+<h3>المحتوى</h3>
+<p>تم إعداد محتوى هذا الموقع لأغراض العرض والتعريف بالسوبرماركت. يجب مراجعة البيانات القانونية والتجارية قبل الإطلاق الرسمي للموقع.</p>
+`
 },
 
+tr:{
+dir:"ltr",
+pageTitle:"ŞAM SÜPERMARKET | Neumünster",
+topBar:"Şam Süpermarket'e hoş geldiniz",
+name:"ŞAM SÜPERMARKET",
+cart:"🛒 Sepet",
+cartTitle:"Alışveriş Sepeti",
+emptyCart:"Sepetiniz boş",
+home:"Ana Sayfa",
+products:"Ürünler",
+contact:"İletişim",
+location:"Bize Ulaşın",
+heroTitle:"ŞAM SÜPERMARKET",
+heroDescription:"Türk, Arap, Doğu ve uluslararası ürünler. Yüksek kalite ve uygun fiyatlar.",
+shopNow:"Şimdi Alışveriş Yap",
+findUs:"📍 Yol Tarifi",
+categoryTitle:"Ana Kategoriler",
+categoryDescription:"Ana kategoriyi seçin. Her kategoriye ait 12 alt ürün ve görsel görüntülenecektir.",
+contactTitle:"Bizimle İletişime Geçin",
+contactDescription:"Şam Süpermarket'i ziyaret edebilir veya doğrudan bizi arayabilirsiniz.",
+address:"📍 Adres",
+phone:"📞 Telefon",
+route:"🚗 Yol Tarifi",
+openMaps:"Google Maps'te aç",
+add:"Sepete Ekle",
+remove:"Sil",
+privacy:"Gizlilik Politikası",
+imprint:"Künye",
+copyright:"© 2026 Tüm telif hakları Şam Süpermarket'e aittir.",
 
-
-tr: {
-
-dir: "ltr",
-
-pageTitle:
-"ŞAM SÜPERMARKET | Neumünster",
-
-topBar:
-"Şam Süpermarket'e hoş geldiniz",
-
-cart:
-"🛒 Sepet",
-
-cartTitle:
-"Alışveriş Sepeti",
-
-emptyCart:
-"Sepetiniz boş",
-
-home:
-"Ana Sayfa",
-
-products:
-"Ürünler",
-
-about:
-"Hakkımızda",
-
-contact:
-"İletişim",
-
-heroTitle:
-"ŞAM SÜPERMARKET",
-
-heroDescription:
-"Türk, Arap, Doğu ve uluslararası ürünler. Kaliteli ürünler, uygun fiyatlar.",
-
-shopNow:
-"Şimdi Alışveriş Yap",
-
-categoryTitle:
-"Ana Kategoriler",
-
-categoryDescription:
-"Aradığınız kategoriyi seçin. Her ana kategori birçok alt ürün içerir.",
-
-footerName:
-"ŞAM SÜPERMARKET",
-
-footerText:
-"Neumünster - Almanya",
-
-add:
-"Sepete Ekle",
-
-remove:
-"Sil",
-
-categories: [
+categories:[
 "Sebzeler",
 "Meyveler",
 "Et Ürünleri",
 "Tavuk",
 "Balık",
 "Süt Ürünleri",
-"Peynirler",
+"Peynir",
 "Ekmek",
-"Pirinç",
+"Pirinç ve Tahıllar",
 "Makarna",
 "Baharatlar",
 "Konserveler",
@@ -1163,72 +1161,62 @@ categories: [
 "Arap Ürünleri",
 "Türk Ürünleri",
 "Asya Ürünleri",
-"Temizlik"
-]
+"Temizlik Ürünleri"
+],
 
+privacyText:`
+<h3>Genel Bilgiler</h3>
+<p>Şam Süpermarket ziyaretçilerinin gizliliğine önem verir ve kişisel verileri yürürlükteki yasalara uygun şekilde işler.</p>
+<h3>İletişim Bilgileri</h3>
+<p>Telefon veya diğer iletişim yollarıyla bizimle iletişime geçtiğinizde, verdiğiniz bilgiler yalnızca talebinizi işlemek ve sizinle iletişim kurmak için kullanılabilir.</p>
+<h3>Harici Hizmetler</h3>
+<p>Bu web sitesi Google Maps gibi harici hizmetler içerebilir. Bu hizmetlerin kullanımı ilgili sağlayıcının gizlilik politikalarına tabi olabilir.</p>
+<h3>Haklarınız</h3>
+<p>Yürürlükteki mevzuata göre kişisel verileriniz hakkında bilgi talep edebilir, düzeltilmesini veya silinmesini isteyebilirsiniz.</p>
+`,
+
+imprintText:`
+<h3>İşletme Bilgileri</h3>
+<p><strong>ŞAM SÜPERMARKET</strong></p>
+<p>Bahnhofstraße 15<br>24534 Neumünster<br>Deutschland</p>
+<h3>İletişim</h3>
+<p>Telefon: +49 1573 1938918</p>
+<h3>İçerik</h3>
+<p>Bu web sitesinin içeriği süpermarketin tanıtımı ve sunumu amacıyla hazırlanmıştır. Resmi yayına geçmeden önce yasal ve ticari bilgilerin kontrol edilmesi önerilir.</p>
+`
 },
 
+de:{
+dir:"ltr",
+pageTitle:"SHAM SUPERMARKET | Neumünster",
+topBar:"Willkommen bei SHAM SUPERMARKET",
+name:"SHAM SUPERMARKET",
+cart:"🛒 Warenkorb",
+cartTitle:"Warenkorb",
+emptyCart:"Ihr Warenkorb ist leer",
+home:"Startseite",
+products:"Produkte",
+contact:"Kontakt",
+location:"Anfahrt",
+heroTitle:"SHAM SUPERMARKET",
+heroDescription:"Arabische, türkische, orientalische und internationale Produkte in hoher Qualität zu fairen Preisen.",
+shopNow:"Jetzt einkaufen",
+findUs:"📍 Anfahrt",
+categoryTitle:"Hauptkategorien",
+categoryDescription:"Wählen Sie eine Hauptkategorie. Anschließend werden 12 passende Unterprodukte angezeigt.",
+contactTitle:"Kontaktieren Sie uns",
+contactDescription:"Besuchen Sie den Sham Supermarkt oder rufen Sie uns direkt an.",
+address:"📍 Adresse",
+phone:"📞 Telefon",
+route:"🚗 Anfahrt",
+openMaps:"In Google Maps öffnen",
+add:"In den Warenkorb",
+remove:"Löschen",
+privacy:"Datenschutzerklärung",
+imprint:"Impressum",
+copyright:"© 2026 Alle Urheberrechte vorbehalten – SHAM SUPERMARKET.",
 
-
-de: {
-
-dir: "ltr",
-
-pageTitle:
-"SHAM SUPERMARKET | Neumünster",
-
-topBar:
-"Willkommen bei Sham Supermarkt",
-
-cart:
-"🛒 Warenkorb",
-
-cartTitle:
-"Warenkorb",
-
-emptyCart:
-"Ihr Warenkorb ist leer",
-
-home:
-"Startseite",
-
-products:
-"Produkte",
-
-about:
-"Über uns",
-
-contact:
-"Kontakt",
-
-heroTitle:
-"SHAM SUPERMARKET",
-
-heroDescription:
-"Arabische, türkische, orientalische und internationale Produkte in hoher Qualität zu fairen Preisen.",
-
-shopNow:
-"Jetzt einkaufen",
-
-categoryTitle:
-"Hauptkategorien",
-
-categoryDescription:
-"Wählen Sie eine Kategorie. Jede Hauptkategorie enthält zahlreiche Unterprodukte.",
-
-footerName:
-"SHAM SUPERMARKET",
-
-footerText:
-"Neumünster - Deutschland",
-
-add:
-"In den Warenkorb",
-
-remove:
-"Löschen",
-
-categories: [
+categories:[
 "Gemüse",
 "Obst",
 "Fleisch",
@@ -1237,7 +1225,7 @@ categories: [
 "Milchprodukte",
 "Käse",
 "Brot",
-"Reis",
+"Reis und Getreide",
 "Nudeln",
 "Gewürze",
 "Konserven",
@@ -1249,114 +1237,132 @@ categories: [
 "Türkische Produkte",
 "Asiatische Produkte",
 "Reinigungsmittel"
-]
+],
 
+privacyText:`
+<h3>Allgemeine Informationen</h3>
+<p>Der SHAM SUPERMARKET respektiert die Privatsphäre seiner Besucher und verarbeitet personenbezogene Daten gemäß den geltenden gesetzlichen Bestimmungen.</p>
+<h3>Kontaktdaten</h3>
+<p>Wenn Sie uns telefonisch oder über andere Kontaktwege kontaktieren, können die von Ihnen bereitgestellten Daten ausschließlich zur Bearbeitung Ihrer Anfrage und zur Kommunikation verwendet werden.</p>
+<h3>Externe Dienste</h3>
+<p>Diese Website kann externe Dienste wie Google Maps enthalten. Bei der Nutzung dieser Dienste gelten gegebenenfalls die Datenschutzbestimmungen des jeweiligen Anbieters.</p>
+<h3>Ihre Rechte</h3>
+<p>Sie können im Rahmen der geltenden Gesetze Auskunft über Ihre personenbezogenen Daten verlangen sowie deren Berichtigung oder Löschung beantragen.</p>
+`,
+
+imprintText:`
+<h3>Angaben zum Unternehmen</h3>
+<p><strong>SHAM SUPERMARKET</strong></p>
+<p>Bahnhofstraße 15<br>24534 Neumünster<br>Deutschland</p>
+<h3>Kontakt</h3>
+<p>Telefon: +49 1573 1938918</p>
+<h3>Hinweis zum Inhalt</h3>
+<p>Der Inhalt dieser Website dient der Präsentation und Information über den Supermarkt. Rechtliche und geschäftliche Angaben sollten vor der offiziellen Veröffentlichung überprüft und gegebenenfalls ergänzt werden.</p>
+`
 }
 
 };
 
 
-/* =========================================
-   CATEGORY IMAGES
-   Change these paths with your real images
-========================================= */
+/* ==========================================
+   CATEGORY IMAGE SOURCES
+========================================== */
 
 const categoryImages = [
+"https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1619566636858-adf3ef46400b?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1603048297172-c92544798d5a?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1544550285-f813152fb2fd?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1452195100486-9cc805987862?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1586208958839-06c17cacdf08?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1551892374-ecf8754cf8b0?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1584473457493-17c4f32a5f99?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1599599810694-57a9b8aa5f8f?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1585421514738-01798e348b17?auto=format&fit=crop&w=900&q=80"
+];
 
-"./assets/categories/vegetables.jpg",
-"./assets/categories/fruits.jpg",
-"./assets/categories/meat.jpg",
-"./assets/categories/chicken.jpg",
-"./assets/categories/fish.jpg",
-"./assets/categories/dairy.jpg",
-"./assets/categories/cheese.jpg",
-"./assets/categories/bread.jpg",
-"./assets/categories/rice.jpg",
-"./assets/categories/pasta.jpg",
-"./assets/categories/spices.jpg",
-"./assets/categories/canned.jpg",
-"./assets/categories/sweets.jpg",
-"./assets/categories/drinks.jpg",
-"./assets/categories/coffee-tea.jpg",
-"./assets/categories/nuts.jpg",
-"./assets/categories/arabic.jpg",
-"./assets/categories/turkish.jpg",
-"./assets/categories/asian.jpg",
-"./assets/categories/cleaning.jpg"
+
+/* ==========================================
+   PRODUCT IMAGE POOL
+   12 IMAGES FOR EACH CATEGORY
+========================================== */
+
+const productImagePool = [
+
+"https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=700&q=80",
+"https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=700&q=80",
+"https://images.unsplash.com/photo-1607305387299-a3d9611cd469?auto=format&fit=crop&w=700&q=80",
+"https://images.unsplash.com/photo-1518843875459-f738682238a6?auto=format&fit=crop&w=700&q=80",
+"https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=700&q=80",
+"https://images.unsplash.com/photo-1518843875459-f738682238a6?auto=format&fit=crop&w=700&q=80",
+"https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?auto=format&fit=crop&w=700&q=80",
+"https://images.unsplash.com/photo-1519996529931-28324d5a630e?auto=format&fit=crop&w=700&q=80",
+"https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=700&q=80",
+"https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=700&q=80",
+"https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=700&q=80",
+"https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=700&q=80"
 
 ];
 
 
-/* =========================================
-   CURRENT LANGUAGE
-========================================= */
+/* ==========================================
+   APP STATE
+========================================== */
 
 let currentLanguage = "ar";
-
-
-/* =========================================
-   SHOPPING CART
-========================================= */
 
 let cart = [];
 
 
-/* =========================================
-   LOAD CATEGORIES
-========================================= */
+/* ==========================================
+   LOAD 20 MAIN CATEGORIES
+========================================== */
 
-function loadCategories() {
+function loadCategories(){
 
-const grid =
-document.getElementById("categoryGrid");
+const grid=document.getElementById("categoryGrid");
 
-grid.innerHTML = "";
+grid.innerHTML="";
 
-const categories =
-translations[currentLanguage].categories;
+const categories=translations[currentLanguage].categories;
 
+categories.forEach((category,index)=>{
 
-categories.forEach((category, index) => {
+const card=document.createElement("div");
 
-const card =
-document.createElement("div");
+card.className="category-card";
 
-card.className =
-"category-card";
+card.onclick=()=>openCategory(index);
 
-card.onclick =
-function() {
-openCategory(index);
-};
-
-
-card.innerHTML = `
+card.innerHTML=`
 
 <div class="category-image">
 
 <img
 src="${categoryImages[index]}"
 alt="${category}"
-
-onerror="
-this.src='https://placehold.co/600x400?text=SHAM+SUPERMARKET';
-">
+loading="lazy"
+onerror="this.src='https://placehold.co/700x500?text=SHAM+SUPERMARKET';">
 
 </div>
-
 
 <div class="category-info">
 
-<h3>
-${category}
-</h3>
+<h3>${category}</h3>
 
-<p>
-10+ ${translations[currentLanguage].products}
-</p>
+<p>12 ${translations[currentLanguage].products}</p>
 
 </div>
-
 `;
 
 grid.appendChild(card);
@@ -1366,465 +1372,277 @@ grid.appendChild(card);
 }
 
 
-/* =========================================
-   OPEN MAIN CATEGORY
-   Every main category shows 10 sub-products
-========================================= */
+/* ==========================================
+   OPEN CATEGORY
+   12 SUB PRODUCTS
+========================================== */
 
-function openCategory(categoryIndex) {
+function openCategory(categoryIndex){
 
-const section =
-document.getElementById(
-"subProductsSection"
-);
+const section=document.getElementById("subProductsSection");
 
-const grid =
-document.getElementById(
-"subProductsGrid"
-);
+const grid=document.getElementById("subProductsGrid");
 
-const title =
-document.getElementById(
-"selectedCategoryTitle"
-);
+const title=document.getElementById("selectedCategoryTitle");
 
-const categoryName =
-translations[currentLanguage]
-.categories[categoryIndex];
+const categoryName=
+translations[currentLanguage].categories[categoryIndex];
+
+title.innerText=categoryName;
+
+grid.innerHTML="";
 
 
-title.innerText =
-categoryName;
+for(let i=0;i<12;i++){
 
-grid.innerHTML = "";
+const productNumber=i+1;
 
+const productName=
+`${categoryName} ${productNumber}`;
 
-/* 10 SUB PRODUCTS */
+const image=
+productImagePool[
+(categoryIndex+i)%productImagePool.length
+];
 
-for (
-let i = 1;
-i <= 10;
-i++
-) {
+const card=document.createElement("div");
 
-const productName =
-categoryName + " " + i;
+card.className="product-card";
 
-
-const card =
-document.createElement("div");
-
-card.className =
-"product-card";
-
-
-card.innerHTML = `
+card.innerHTML=`
 
 <img
-
-src="./assets/products/category-${categoryIndex + 1}-${i}.jpg"
-
+src="${image}"
 alt="${productName}"
-
-onerror="
-this.src='https://placehold.co/500x500?text=${encodeURIComponent(productName)}';
-"
-
->
-
+loading="lazy"
+onerror="this.src='https://placehold.co/500x500?text=SHAM+SUPERMARKET';">
 
 <div class="product-info">
 
-<h4>
-${productName}
-</h4>
+<h4>${productName}</h4>
 
-<p>
-SHAM SUPERMARKET
-</p>
+<p>${translations[currentLanguage].name}</p>
 
 <button
-
 class="add-btn"
-
-onclick="addToCart('${productName.replace(/'/g, "\\'")}')"
-
->
+onclick="addToCart('${productName.replace(/'/g,"\\'")}')">
 
 ${translations[currentLanguage].add}
 
 </button>
 
 </div>
-
 `;
-
 
 grid.appendChild(card);
 
 }
 
+section.classList.add("show");
 
-section.classList.add(
-"show"
-);
-
-
-setTimeout(
-function() {
-
+setTimeout(()=>{
 section.scrollIntoView({
-behavior: "smooth",
-block: "start"
+behavior:"smooth",
+block:"start"
 });
-
-},
-150
-);
+},150);
 
 }
 
 
-/* =========================================
-   ADD TO CART
-========================================= */
+/* ==========================================
+   CART
+========================================== */
 
-function addToCart(productName) {
+function addToCart(productName){
 
 cart.push({
-name: productName
+name:productName
 });
 
 updateCart();
 
 }
 
+function removeFromCart(index){
 
-/* =========================================
-   UPDATE CART
-========================================= */
+cart.splice(index,1);
 
-function updateCart() {
+updateCart();
 
-document.getElementById(
-"cartCount"
-).innerText =
+}
+
+function updateCart(){
+
+document.getElementById("cartCount").innerText=
 cart.length;
 
-const container =
-document.getElementById(
-"cartItems"
-);
+const container=
+document.getElementById("cartItems");
 
+const t=translations[currentLanguage];
 
-if (
-cart.length === 0
-) {
+if(cart.length===0){
 
-container.innerHTML = `
-
+container.innerHTML=`
 <div class="empty-cart">
-
-${translations[currentLanguage].emptyCart}
-
+${t.emptyCart}
 </div>
-
 `;
 
 return;
 
 }
 
+container.innerHTML="";
 
-container.innerHTML =
-"";
+cart.forEach((item,index)=>{
 
+const row=document.createElement("div");
 
-cart.forEach(
-(item, index) => {
+row.className="cart-item";
 
-const div =
-document.createElement("div");
+row.innerHTML=`
 
-div.className =
-"cart-item";
-
-
-div.innerHTML = `
-
-<span>
-${item.name}
-</span>
+<span>${item.name}</span>
 
 <button
-
 class="remove-btn"
+onclick="removeFromCart(${index})">
 
-onclick="removeFromCart(${index})"
-
->
-
-${translations[currentLanguage].remove}
+${t.remove}
 
 </button>
-
 `;
 
-
-container.appendChild(div);
+container.appendChild(row);
 
 });
 
 }
 
 
-/* =========================================
-   REMOVE PRODUCT
-========================================= */
+/* ==========================================
+   MODALS
+========================================== */
 
-function removeFromCart(index) {
+function openModal(id){
 
-cart.splice(
-index,
-1
-);
-
-updateCart();
+document.getElementById(id)
+.classList.add("show");
 
 }
 
+function closeModal(id){
 
-/* =========================================
-   CART OPEN/CLOSE
-========================================= */
-
-function openCart() {
-
-document.getElementById(
-"cartModal"
-).classList.add(
-"show"
-);
+document.getElementById(id)
+.classList.remove("show");
 
 }
 
+document.querySelectorAll(".modal")
+.forEach(modal=>{
 
-function closeCart() {
+modal.addEventListener("click",function(e){
 
-document.getElementById(
-"cartModal"
-).classList.remove(
-"show"
-);
+if(e.target===modal){
 
-}
-
-
-/* =========================================
-   LANGUAGE CHANGE
-========================================= */
-
-function changeLanguage(language) {
-
-currentLanguage =
-language;
-
-
-const t =
-translations[language];
-
-
-/* HTML LANGUAGE */
-
-document.documentElement.lang =
-language;
-
-document.documentElement.dir =
-t.dir;
-
-
-/* TITLE */
-
-document.title =
-t.pageTitle;
-
-
-/* TOP */
-
-document.getElementById(
-"topBar"
-).innerText =
-t.topBar;
-
-
-/* CART */
-
-document.getElementById(
-"cartText"
-).innerText =
-t.cart;
-
-
-document.getElementById(
-"cartTitle"
-).innerText =
-t.cartTitle;
-
-
-/* NAV */
-
-document.getElementById(
-"navHome"
-).innerText =
-t.home;
-
-document.getElementById(
-"navProducts"
-).innerText =
-t.products;
-
-document.getElementById(
-"navAbout"
-).innerText =
-t.about;
-
-document.getElementById(
-"navContact"
-).innerText =
-t.contact;
-
-
-/* HERO */
-
-document.getElementById(
-"heroTitle"
-).innerText =
-t.heroTitle;
-
-document.getElementById(
-"heroDescription"
-).innerText =
-t.heroDescription;
-
-document.getElementById(
-"shopNow"
-).innerText =
-t.shopNow;
-
-
-/* CATEGORY */
-
-document.getElementById(
-"categoryTitle"
-).innerText =
-t.categoryTitle;
-
-document.getElementById(
-"categoryDescription"
-).innerText =
-t.categoryDescription;
-
-
-/* FOOTER */
-
-document.getElementById(
-"footerName"
-).innerText =
-t.footerName;
-
-document.getElementById(
-"footerText"
-).innerText =
-t.footerText;
-
-
-/* ACTIVE BUTTON */
-
-document
-.querySelectorAll(".lang-btn")
-.forEach(
-button => {
-
-button.classList.remove(
-"active"
-);
+modal.classList.remove("show");
 
 }
-);
+
+});
+
+});
+
+
+/* ==========================================
+   LANGUAGE
+========================================== */
+
+function changeLanguage(language){
+
+currentLanguage=language;
+
+const t=translations[language];
+
+document.documentElement.lang=language;
+document.documentElement.dir=t.dir;
+
+document.title=t.pageTitle;
+
+document.getElementById("topBar").innerText=t.topBar;
+
+document.getElementById("cartText").innerText=t.cart;
+document.getElementById("cartTitle").innerText=t.cartTitle;
+
+document.getElementById("navHome").innerText=t.home;
+document.getElementById("navProducts").innerText=t.products;
+document.getElementById("navContact").innerText=t.contact;
+document.getElementById("navLocation").innerText=t.location;
+
+document.getElementById("heroTitle").innerText=t.heroTitle;
+document.getElementById("heroDescription").innerText=t.heroDescription;
+document.getElementById("shopNow").innerText=t.shopNow;
+document.getElementById("findUs").innerText=t.findUs;
+
+document.getElementById("categoryTitle").innerText=t.categoryTitle;
+document.getElementById("categoryDescription").innerText=t.categoryDescription;
+
+document.getElementById("contactTitle").innerText=t.contactTitle;
+document.getElementById("contactDescription").innerText=t.contactDescription;
+
+document.getElementById("addressLabel").innerText=t.address;
+document.getElementById("phoneLabel").innerText=t.phone;
+document.getElementById("routeLabel").innerText=t.route;
+
+document.getElementById("openMapsText").innerText=t.openMaps;
+
+document.getElementById("footerName").innerText=t.name;
+
+document.getElementById("privacyBtn").innerText=t.privacy;
+document.getElementById("imprintBtn").innerText=t.imprint;
+
+document.getElementById("privacyTitle").innerText=t.privacy;
+document.getElementById("imprintTitle").innerText=t.imprint;
+
+document.getElementById("privacyContent").innerHTML=t.privacyText;
+document.getElementById("imprintContent").innerHTML=t.imprintText;
+
+document.getElementById("copyright").innerText=t.copyright;
 
 
 document
 .querySelectorAll(".lang-btn")
-.forEach(
-button => {
+.forEach(btn=>{
 
-if (
-button.innerText.toLowerCase()
-===
-language
-) {
+btn.classList.remove("active");
 
-button.classList.add(
-"active"
-);
-
+if(btn.innerText.toLowerCase()===language){
+btn.classList.add("active");
 }
 
-}
-);
+});
 
 
-/* RELOAD MAIN CATEGORIES */
+document
+.getElementById("subProductsSection")
+.classList.remove("show");
 
 loadCategories();
 
-
-/* UPDATE CART LANGUAGE */
-
 updateCart();
 
-
-/* CLOSE SUB PRODUCTS */
-
-document.getElementById(
-"subProductsSection"
-).classList.remove(
-"show"
-);
-
 }
 
 
-/* =========================================
-   CLOSE CART WHEN CLICKING OUTSIDE
-========================================= */
-
-document.getElementById(
-"cartModal"
-).addEventListener(
-"click",
-function(e) {
-
-if (
-e.target.id === "cartModal"
-) {
-
-closeCart();
-
-}
-
-}
-);
-
-
-/* =========================================
+/* ==========================================
    INITIAL LOAD
-========================================= */
+========================================== */
 
 loadCategories();
 
-updateCart();
-
+changeLanguage("ar");
 
 </script>
 
